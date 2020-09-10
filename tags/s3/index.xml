@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>S3 on p0n2&#39;s Blog</title>
+    <link>/tags/s3/</link>
+    <description>Recent content in S3 on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/s3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS NatGateway Cost Optimization筆記</title>
+      <link>/post/2020_07_nat_gw_cost_optimized/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_07_nat_gw_cost_optimized/</guid>
+      <description>很多人初學AWS應該都會認識Nat Gateway這個服務，並且部署在Public Subnet裡提供給Private Subnet中的ＶＭ對外的存取。 不過其實你的application對外有大量對於S3或是dynamoDB大量的存取，可以搭配Pricing文件然後再搭配你的Billing，就會發現這是一筆成本。尤其是早起base在ec2的老服務容易遇到這種狀況(淚)
+不過，這幾年在AWS架構上逐漸推廣VPC Endpoint的方式來提供給內部服務存取S3/DynamoDB。
+如此一來便不用特別配製Nat Gateway也可以省下一筆費用。可以參考官方的說明
+此外，利用VPC Endpoint後，我們也可以在Security上透過policy來更安全的存取相關的資源，比如我們可以限制S3 Bucket只能透過特定的Endpoint來存取</description>
+    </item>
+    
+    <item>
+      <title>AWS ElasticSearch/ES 筆記</title>
+      <link>/post/2020_07_aws_es_all/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_07_aws_es_all/</guid>
+      <description>1. Launch AWS ES Domain  1.1 Domain的Deployment位置 1.2 怎麼決定ES Domain Sizing 1.</description>
+    </item>
+    
+    <item>
+      <title>AWS S3 Enable CORS</title>
+      <link>/post/2020_06_s3_enable_cors/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_06_s3_enable_cors/</guid>
+      <description>有的時候如果S3的要開放給不同的Client做存取資源的話，難免會遇到CORS的Error Message。 這個時候我們可以先到AWS Web console &amp;gt; S3 &amp;gt; Bucket &amp;gt; Permission &amp;gt; CORS configuration 可以輸入下面的設定</description>
+    </item>
+    
+    <item>
+      <title>AWS lambda自動在Bucket間複製S3 Object檔案與重新命名</title>
+      <link>/post/2020_04_serverelss_aws_golang_s3/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_serverelss_aws_golang_s3/</guid>
+      <description>0. Intro 1. 安裝 2. 設定 3. 細節說明  0.</description>
+    </item>
+    
+    <item>
+      <title>AWS lambda常見的使用範例</title>
+      <link>/post/2020_04_most_common_case_of_lambda/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_most_common_case_of_lambda/</guid>
+      <description>0. Intro  1. Automation 2. Data Transformation 3. API Service 4.</description>
+    </item>
+    
+    <item>
+      <title>使用AWS S3來部署Golang Hugo Blog靜態網頁</title>
+      <link>/post/2019_11_hugo_deployment/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2019_11_hugo_deployment/</guid>
+      <description>0. Prerequisite 1. Create S3 Bucket and configuration 3. Summary  0.</description>
+    </item>
+    
+  </channel>
+</rss>

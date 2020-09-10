@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | AWS Container服務Beanstalk/ECS/Fargate/EKS介紹與比較 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2019_11_aws_container_intro/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS Container服務Beanstalk/ECS/Fargate/EKS介紹與比較"/>
+<meta name="twitter:description" content="0. Container Orchestration on AWS  1. BeansTalk 2. ECS 3."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>AWS Container服務Beanstalk/ECS/Fargate/EKS介紹與比較
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sun, Nov 3, 2019</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <ul>
+<li><a href="#0-container-orchestration-on-aws">0. Container Orchestration on AWS</a>
+<ul>
+<li><a href="#1-beanstalk">1. BeansTalk</a></li>
+<li><a href="#2-ecs">2. ECS</a></li>
+<li><a href="#3-ecs-fargate">3. ECS-Fargate</a></li>
+<li><a href="#4-eks">4. EKS</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="0-container-orchestration-on-aws">0. Container Orchestration on AWS</h3>
+<p>目前在AWS上提供了下面四種方式讓你可以部署你的container到AWS上提供服務，不過其實這四種方式在不同的面向上都有些細微的差異，而筆者自己在side project與工作上的部署也會隨著不同的專案規模與需求來選擇，我們將會分別比較這四種在AWS上提供的solution</p>
+<ol>
+<li>Beanstalk</li>
+<li>ECS</li>
+<li>ECS-Fargate</li>
+<li>EKS</li>
+</ol>
+<h4 id="1-beanstalk">1. BeansTalk</h4>
+<p>AWS Elastic Beanstalk 其實是一項我滿喜歡的服務，除了是較早期推出的服務，也是少數AWS中少數比較面向Developer導向的服務，提供開發者只需要專注在application的開發與source code的管理，一但確定要部署，後續的Auto Scaling, Load Balancer, service monitoring在預設的config下來運行web或是api service都還有可接受的結果。</p>
+<p>如果developer有CLI的權限的話，可以搭配Elastic Beanstalk 所提供的CLI, <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html">EB CLI</a>，便可以簡單的透過<code>eb init</code>來config你所使用的語言python/go等或是docker，再搭配<code>eb deploy</code>便可以快速的部署你的web application到AWS上。</p>
+<p>而在與AWS其他資源的整合上，由於Beanstalk的目標對象比較偏向Web Application，因此如果需要有Database的服務(DynamoDB, RDS)或是File System/Storage(EFS, S3)的整合，基本上都是沒有問題的，詳細的說明可以參考<a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.html">Integrating AWS Services</a>。</p>
+<p>如果你是個人開發的Side Project或是Start-up在人力有限的狀況下想要快速的部署你的產品或服務上cloud來問世或是做一些MVP，那我覺得Elastic Beanstalk就是你最好的選擇了!</p>
+<h4 id="2-ecs">2. ECS</h4>
+<p>Elastic Container Service(ECS)，是一個base在EC2上的container服務，ECS服務本身不收費，但是架設容器服務的EC2以及儲存資源或Load Balancer等服務是要收費的。同時，因為是以EC2為基礎的服務，所以Load Balancer與auto scaling和監控等服務，也都跟使用EC2的經驗上差異不大，在部署與管理上也可以以EC2 instance的部署與管理經驗來做考量。</p>
+<p>由於ECS預設是以EC2 instance來管裡，因此必須注意的是在Auto Scaling的設定上，ECS是以AMI來當作scaling的基礎單位，並非以Container來作scaling。</p>
+<p>不過，ECS天生在某些地方還是天生神力的</p>
+<ol>
+<li>AWS Service高度整合：如果你的container Cluster需要使用到EFS等AWS所提供的File system來進行資源的共享或運算，那ECS在這方面優勢相較於Fargate大勝。</li>
+<li>Window Container：相較於Fargate，ECS對於Window container的支援性與可配置程度還是較高，因此如果你的container cluster是以window為基礎的，那還是建議擁抱ECS。</li>
+<li>Spot instance：如果你的container是某些需要大量但短期的運算資源，ECS允許使用者以<a href="https://aws.amazon.com/tw/ec2/spot/pricing/">EC2 Spot Instance</a>來launch ECS，如此一來便可以有強大的運算資源但是少少的花費。</li>
+</ol>
+<h4 id="3-ecs-fargate">3. ECS-Fargate</h4>
+<p>ECS-Fargate是AWS所提供的全託管的Container服務，首先Fargate讓開發者只需要專注在task中定義單一container所需要的資源(CPU, Mem等)，後續的Scaling都可以透過這個預先定義行的task來處理，此外，在Logging的功能上也可以透過task definition來完成，如果需要了解task的設定，可以參考<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon ECS Task Definitions</a>。</p>
+<p>相較於ECS，由於Fargate是全託管的服務，因此除了初期需要花點時間完成task definition或是cluster的配置，後續就只需要專注在service上的開發就好，對於小型的團隊在operation上的effort是一大優點，</p>
+<p>使用Fargate還有一些隱性的好處，前陣子陸續把一些API的service 轉到Fargate上，而這些API大部分的user都是在亞洲，因此service request大部分會集中在12小時內，相較於原先用ECS是以EC2的instance 24小時來收費，<a href="https://aws.amazon.com/tw/fargate/pricing/">Fargate Pricing</a>在這種非global service的狀況下在service花費上就顯得較為經濟。</p>
+<h4 id="4-eks">4. EKS</h4>
+<p>Elastic Kubernetes Service (EKS) 是AWS所提供的Kubernetes服務，基本上前面所提到的ECS或是Fargate的優點幾乎都集中在EKS了，可以自動處理container的scaling與load balancer，甚至也可以啟用<a href="https://aws.amazon.com/marketplace/pp/B07GRHFXGM">EKS-optimized AMI with GPU Support</a>來進行機器學習相關的運算。</p>
+<p>EKS在安全性上也支援IAM與VPC的網路管理，較強大的應該是EKS整合了Kubernetes RBAC與IAM，可以參考<a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">Managing Users or IAM Roles for your Cluster</a>，如果你原先就有使用ECS並且定義了許多的service role，隨著ECS上的Cluster數量漸複雜而面臨管理問題，這種情況下建議可以勇敢的擁抱EKS～</p>
+<p>But，EKS初期的部署與後續的維運都是需要有專業的人力來進行的，雖然比起原生的K8S少了架設許多基礎環境，但是EKS內部的許多網路與安全性的設定，還是需要配給專業的工程師來處理會比較好一點。花費的部分就不多談了，理論上如果service規模夠大且需要用到EKS來管理，應該也不會care這一點instance成本了ＸＤ。</p>
+<h4 id="summary">Summary</h4>
+<p>綜合來看，我們可以將上面的比較敘述簡單整理成下表，而在實務上的service環境，這四種環境各有優缺點，所以其實沒有哪一種服務是perfect的，還是需要全面性的依照團隊的需求與現況來綜合性的考量，選出最適合的service。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Beanstalk</th>
+<th>ECS</th>
+<th>Fargate</th>
+<th>EKS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service Cost</td>
+<td>中</td>
+<td>中</td>
+<td>低★</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Deployment Effort</td>
+<td>低★</td>
+<td>中</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Configurability</td>
+<td>低</td>
+<td>高★</td>
+<td>中</td>
+<td>高★</td>
+</tr>
+<tr>
+<td>Operation Effort</td>
+<td>低★</td>
+<td>中</td>
+<td>低★</td>
+<td>高</td>
+</tr>
+<tr>
+<td>AWS Integrability</td>
+<td>高★</td>
+<td>高★</td>
+<td>中</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/aws/">AWS</a><a class="tag" href="/tags/ecs/">ECS</a><a class="tag" href="/tags/fargate/">Fargate</a><a class="tag" href="/tags/k8s/">K8S</a><a class="tag" href="/tags/eks/">EKS</a><a class="tag" href="/tags/beanstalk/">Beanstalk</a><a class="tag" href="/tags/serverless/">serverless</a><a class="tag" href="/tags/container/">container</a><a class="tag" href="/tags/%E5%AE%B9%E5%99%A8/">“容器”</a><a class="tag" href="/tags/amazon/">amazon</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | Golang使用hugo搭建你的第一個blog </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2019_11_engaged_with_hugo/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang使用hugo搭建你的第一個blog"/>
+<meta name="twitter:description" content="在我們開始聊Hugo之前，先看看網路上大家都怎麼利用Hugo Show Case
+0. Prerequisite 在開始使用hugo之前，必須要先在你的環境中安裝hugo的cli。
+如過你是Mac/linux user，恭喜你！你只需要在你的terminal中輸入 （linux user如果無法執行brew command的話，請先安裝Homebrew-on-linux）"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>Golang使用hugo搭建你的第一個blog
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Fri, Nov 8, 2019</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>在我們開始聊Hugo之前，先看看網路上大家都怎麼利用<a href="https://gohugo.io/showcase/">Hugo Show Case</a></p>
+<h2 id="0-prerequisite">0. Prerequisite</h2>
+<p>在開始使用hugo之前，必須要先在你的環境中安裝hugo的cli。</p>
+<p>如過你是Mac/linux user，恭喜你！你只需要在你的terminal中輸入 （linux user如果無法執行brew command的話，請先安裝<a href="https://docs.brew.sh/Homebrew-on-Linux">Homebrew-on-linux</a>）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install hugo
+</code></pre></div><p>安裝完成後，可以接著輸入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo version
+</code></pre></div><p>如果有成功顯示類似下面的訊息（版本可能會不一樣），那就是安裝已經完成囉。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Hugo Static Site Generator v0.58.3
+</code></pre></div><h2 id="1-create-first-site">1. Create first Site</h2>
+<p>接著輸入下面的command來創建你的第一個blog</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo new site first-blog
+tree first-blog
+</code></pre></div><p>完成後，你的機器上應該會產生一個first-blog的資料夾，雖然資料夾裡已經透過new site指令幫你創造裡基本的結構，不過我們還需要一些步驟來完成。</p>
+<h2 id="2-apply-new-theme">2. Apply New Theme</h2>
+<p>在剛創建完的Hugo Site中預設是沒有任何的theme的，所以你必須去找到一個你想要的theme來套用。
+<a href="https://themes.gohugo.io/">Hugo Themes</a> 近去後應該會看到各式各樣的theme，可以先多瀏覽幾個來看看其他使用者都怎麼利用Hugo。</p>
+<p>在這邊我們在這次的教學中選擇的是<a href="https://themes.gohugo.io/pulp/">pulp</a>這個主題
+你可以選擇透過網頁下載接著再解壓縮到/first-blog/themes中</p>
+<p>或是透過command (環境中必須安裝git cli)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /first-blog/themes
+git clone https://github.com/koirand/pulp.git
+</code></pre></div><p>在hugo每個主題中中都會有exampleSite，因此我們先回到原本的first-blog的目錄下
+然後將theme中預設的config與範例內容copy到first-blog目錄中</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cp themes/pulp/exampleSite/config.toml .
+cp -r themes/pulp/exampleSite/* .
+</code></pre></div><p>接著，在本機端將blog run起來看看</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo serve --disableFastRender
+</code></pre></div><p>在執行完這行command後，應該會可以從畫面上看到hugo給你的本地端網址與port
+EX: localhost:53721，在瀏覽器中打開便可以看到我們剛剛套用的主題與預設內容。</p>
+<p><img src="./serve_1.png" alt="Hugo serve screenshot"></p>
+<h2 id="3-understand-hugo-directory-structure">3. Understand Hugo Directory Structure</h2>
+<p>在我們開始first-blog裡面的內容與config動手腳之前，我們先來了解一下hugo的資料夾組成。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+</code></pre></div><h3 id="31-archetypes">3.1 archetypes</h3>
+<p>在hugo的command中，有個hugo new的指令可以讓你快速的產生不同的內容，如果你的網站有blog以及其他產品頁面，那可以透過不同的archetypes的template file，再加上<code>hugo new --kind blog blog/first.md</code>,  <code>hugo new --kind product product/watch.md</code>等方法，快速的產生預設頁面內容，再稍做修改即可以變成一篇新的post。</p>
+<h3 id="32-configtoml">3.2 config.toml</h3>
+<p>Hugo貼心的將整個網站的configuration都集中在config.toml檔中，你可以透過簡單的配置網站的title以及基本網站的資訊，來快速的建立網站。如果有興趣了解可多config的項目，可以參考<a href="https://gohugo.io/getting-started/configuration/#all-variables-yaml">Configure Hugo</a>，稍後也會介紹其他的配置來讓網站更為完善。</p>
+<h3 id="33-content">3.3 content</h3>
+<p>Hugo預設將所有網站的內容都放在content的目錄中，每一個在content目錄下的資料夾目錄都是一個獨立的section，例如我們在first-blog中目前已經有<code>content/blog</code>的目錄，如果你透過Hugo建立的網站是非部落格類型的Site，例如商品展示與介紹的網站，那在content目錄下便有可能會有<code>content/product</code>，<code>content/blog</code>等不同的section，再搭配menu的配置，便可以輕鬆的透過<code>www.example.com/product</code>，<code>www.example.com/blog</code>等方式來存取你的網站頁面。</p>
+<h3 id="34-data">3.4 data</h3>
+<p>在這次的first-blog可能不會用到data folder，不過如果你的網站類型是購物網站等類型，那你便可以將商品整理成清單後在儲存在data目錄中，便可以透過data template的方式在你的網站上動態瀏覽不同的商品，而不需要將所有的頁面都產生成頁面。有興趣的話，可以研究一下<a href="https://gohugo.io/templates/data-templates/">Data Template</a>。</p>
+<h3 id="35-layouts">3.5 layouts</h3>
+<p>前面有提到Hugo提供archeTypes的方式來讓使用者只需要專注的內容的markdown的撰寫，然後Hugo會自動透過layout中定義的template，來自動幫我們產生整合template與markdown內容的html網頁，以first-blog的例子來看，你可以瀏覽<code>theme/pulp/layout/_default</code>中的檔案，即可以發現部落格中文章清單與單一篇文章的樣式都有各自對應的檔案。</p>
+<h3 id="36-static">3.6 static</h3>
+<p>網頁中常用的圖片, CSS, JavaScript檔案的目錄。</p>
+<h2 id="4-review-hugo-config">4. review hugo config</h2>
+<p>接著，讓我們來了解在config.toml中的一些配置選項，隨著套用不同的theme預設的config內容應該會有些微的差異，不過基本的配置如網站名稱與owner資訊等項目大部分的theme都已是標配，其他例如google analytics的tracking ID等進階的配置，就是依照使用者需求來決定要不要啟用，如果需要的話，將config item前置的#移除，在數入相對應的config內容便會生效。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseurl</span> = <span style="color:#e6db74">&#34;https://example.com/&#34;</span> <span style="color:#75715e">#網站的domain</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Site Title&#34;</span> <span style="color:#75715e">#網站title</span>
+<span style="color:#75715e"># googleAnalytics = &#34;{your tracking code}&#34; ＃GA的Tracking ID</span>
+
+[<span style="color:#a6e22e">params</span>]
+    <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;Your Name&#34;</span>
+    <span style="color:#a6e22e">avatar</span> = <span style="color:#e6db74">&#34;avatar.jpg&#34;</span>
+    <span style="color:#a6e22e">description</span> = <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">        Please write anything here.
+</span><span style="color:#e6db74">        Profiles, backgrounds, favorite things etc.
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+
+</code></pre></div><p>修改完成後，儲存config.toml，接著我們透過hugo command來看看修改後的成果。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo serve
+</code></pre></div><p>此時，你應該可以透過瀏覽器開啟localhost:1313來看到first-blog的成果。</p>
+<h2 id="5-blog-is-ready-to-take-off">5. blog is ready to take off</h2>
+<p>透過前面的幾個步驟，我們已經對於first-blog有了一些簡單的配置來讓blog開始準備上線，而上一步驟中我們使用了<code>hugo serve</code>的指令在本地端觀看執行的成果。不過，Hugo是為了靜態網頁而生，最後，在確認網站都沒有問題後，我們可以透過下面的command將markdown的內容通通轉成靜態的網頁與相關資源。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo
+</code></pre></div><p>嗯ＸＤ，就是只有hugo四個字，接下來可以確認一下<code>first-blog/public</code>中Hugo是不是幫你把目前網站中的內容都產生成靜態的頁面與相關資源，如果沒問題的，就可以將這些靜態檔案透過web serve來讓你的網站上線讓其他人瀏覽。</p>
+<p>下一篇，我們再來介紹要怎麼將hugo部署到AWS(Amazon Web Service)。</p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/hugo/">Hugo</a><a class="tag" href="/tags/blog/">Blog</a><a class="tag" href="/tags/staticsite/">StaticSite</a><a class="tag" href="/tags/%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/">靜態網頁</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

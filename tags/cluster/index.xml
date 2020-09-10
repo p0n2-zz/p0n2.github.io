@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cluster on p0n2&#39;s Blog</title>
+    <link>/tags/cluster/</link>
+    <description>Recent content in Cluster on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS ElasticSearch/ES 筆記</title>
+      <link>/post/2020_07_aws_es_all/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_07_aws_es_all/</guid>
+      <description>1. Launch AWS ES Domain  1.1 Domain的Deployment位置 1.2 怎麼決定ES Domain Sizing 1.</description>
+    </item>
+    
+    <item>
+      <title>AWS ElasticSearch 常見錯誤處理</title>
+      <link>/post/2020_06_aws_es_exceptions/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_06_aws_es_exceptions/</guid>
+      <description>1. High JVM Memory Pressure 2. High CPU Utilization 3.</description>
+    </item>
+    
+    <item>
+      <title>AWS ElasticSearch/ES Cluster status red/yellow</title>
+      <link>/post/2020_06_aws_es_cluster_status/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_06_aws_es_cluster_status/</guid>
+      <description>1. 起手式 2. Cluster Status Yellow 3. Cluster Status Red  1.</description>
+    </item>
+    
+  </channel>
+</rss>

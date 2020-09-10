@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | 常用的Golang RegExp 範例筆記 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2020_04_golang_reg_exp_example/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="常用的Golang RegExp 範例筆記"/>
+<meta name="twitter:description" content="0. Intro 1. Extract text between square brackets 2. Extract text between parentheses 3."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>常用的Golang RegExp 範例筆記
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Thu, Apr 2, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <ul>
+<li><a href="#0-intro">0. Intro</a></li>
+<li><a href="#1-extract-text-between-square-brackets">1. Extract text between square brackets</a></li>
+<li><a href="#2-extract-text-between-parentheses">2. Extract text between parentheses</a></li>
+<li><a href="#3-extract-text-from-between-html-tag">3. Extract text from between html tag</a></li>
+<li><a href="#4-extract-src-path-im-image-tag">4. Extract src path im image tag</a></li>
+<li><a href="#5-extract-all-special-characters-from-a-string">5. Extract all special characters from a String</a></li>
+<li><a href="#6-extract-date-yyyy-mm-dd-from-string">6. Extract date YYYY-MM-DD from string</a></li>
+<li><a href="#7-extract-time-hhmm-from-string">7. Extract time hh:mm from string</a></li>
+<li><a href="#8-extract-ip-address-from-string">8. Extract IP Address from string</a></li>
+<li><a href="#9-extract-domain-name-from-string">9. Extract domain name from string</a></li>
+<li><a href="#10-extract-domain-from-url">10. Extract domain from URL</a></li>
+<li><a href="#11-extract-email-address">11. Extract email address</a></li>
+<li><a href="#12-extract-phone-number">12. Extract phone number</a></li>
+<li><a href="#13-extract-numbers-from-a-string">13. Extract numbers from a string</a></li>
+<li><a href="#14-extract-filename-from-path">14. Extract filename from path</a></li>
+<li><a href="#15-extract-namespace-image-name-tag-from-docker-image">15. Extract namespace, image name, tag from docker image</a></li>
+<li><a href="#16-extract-fields-from-sql-select-syntax">16. Extract fields from sql select syntax</a></li>
+</ul>
+<h2 id="0-intro">0. Intro</h2>
+<p>Notion裡堆了好多golang的regex snippets，趁今天有空把他們一起整理出來透透氣。</p>
+<h2 id="1-extract-text-between-square-brackets">1. Extract text between square brackets</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello, [p0n2]&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`\[(.*?)\]`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="2-extract-text-between-parentheses">2. Extract text between parentheses</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;hello, (p0n2)&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`\((.*?)\)`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="3-extract-text-from-between-html-tag">3. Extract text from between html tag</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`&lt;html&gt;&lt;body&gt;&lt;h5&gt;Hellom p0n2.&lt;/h5&gt;&lt;/body&gt;&lt;/html&gt;`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`&lt;h5.*?&gt;(.*)&lt;/h5&gt;`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="4-extract-src-path-im-image-tag">4. Extract src path im image tag</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`&lt;img src=&#34;p0n2.png&#34;&gt;&lt;x&gt;&lt;z?&gt;`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`&lt;img[^&gt;]+\bsrc=[&#34;&#39;]([^&#34;&#39;]+)[&#34;&#39;]`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindStringSubmatch</span>(<span style="color:#a6e22e">inputStr</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>[<span style="color:#ae81ff">1</span>])
+</code></pre></div><h2 id="5-extract-all-special-characters-from-a-string">5. Extract all special characters from a String</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;On OS X or Linux (bash), adding the following expression to PATH will add all $GOPATH/bin directories.&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`[^a-zA-Z0-9]+`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="6-extract-date-yyyy-mm-dd-from-string">6. Extract date YYYY-MM-DD from string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;If I am 20 years 10 months and 14 days old as of August 17,2016 then my DOB would be 1995-10-03&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`\d{4}-\d{2}-\d{2}`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="7-extract-time-hhmm-from-string">7. Extract time hh:mm from string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;23:59&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`^([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="8-extract-ip-address-from-string">8. Extract IP Address from string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`Non-authoritative answer:
+</span><span style="color:#e6db74">Name:	www.google.com
+</span><span style="color:#e6db74">Address: 172.217.160.100`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="9-extract-domain-name-from-string">9. Extract domain name from string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`www.p0n2.net`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`^(?i)^(?:([a-z0-9-]+|\*)\.)?([a-z0-9-]{1,61})\.([a-z0-9]{2,7})$`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="10-extract-domain-from-url">10. Extract domain from URL</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`https://www.p0n2.net/2020/04/lambda.html`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="11-extract-email-address">11. Extract email address</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`p0n2@email.com`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">&#34;^[a-zA-Z0-9.!#$%&amp;&#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$&#34;</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="12-extract-phone-number">12. Extract phone number</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;1-234-567-8901 ext1234&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="13-extract-numbers-from-a-string">13. Extract numbers from a string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Hello, p0n2 is a 99 years old man&#34;</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`[-]?\d[\d,]*[\.]?[\d{2}]*`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="14-extract-filename-from-path">14. Extract filename from path</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`/home/ubuntu/p0n2.png`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`^(.*/)?(?:$|(.+?)(?:(\.[^.]*$)|$))`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindStringSubmatch</span>(<span style="color:#a6e22e">inputStr</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>[<span style="color:#ae81ff">2</span>])
+</code></pre></div><h2 id="15-extract-namespace-image-name-tag-from-docker-image">15. Extract namespace, image name, tag from docker image</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`jenkins/jenkins:2.222.3-centos`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`(?P&lt;namespace&gt;.+/)?(?P&lt;image&gt;[^:]+)(?P&lt;tag&gt;:.+)?`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindStringSubmatch</span>(<span style="color:#a6e22e">inputStr</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div><h2 id="16-extract-fields-from-sql-select-syntax">16. Extract fields from sql select syntax</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">inputStr</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`select name, tel, sex, from profile;`</span>
+<span style="color:#a6e22e">re</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#e6db74">`(?:\s+as\s+)(?P&lt;renamed&gt;\w+)|(?P&lt;renamed_without_as&gt;\s+\w+\,)|(?:^\s*\w+\.)(?P&lt;original&gt;\w+)(?:\,|from)`</span>)
+<span style="color:#a6e22e">subMatchAll</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">FindAllString</span>(<span style="color:#a6e22e">inputStr</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">re</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">inputStr</span>), <span style="color:#a6e22e">subMatchAll</span>)
+</code></pre></div>
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/regex/">regex</a><a class="tag" href="/tags/regular-expression/">Regular Expression</a><a class="tag" href="/tags/extract/">Extract</a><a class="tag" href="/tags/snippets/">snippets</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

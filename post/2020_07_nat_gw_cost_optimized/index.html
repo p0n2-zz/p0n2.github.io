@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | AWS NatGateway Cost Optimization筆記 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2020_07_nat_gw_cost_optimized/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS NatGateway Cost Optimization筆記"/>
+<meta name="twitter:description" content="很多人初學AWS應該都會認識Nat Gateway這個服務，並且部署在Public Subnet裡提供給Private Subnet中的ＶＭ對外的存取。 不過其實你的application對外有大量對於S3或是dynamoDB大量的存取，可以搭配Pricing文件然後再搭配你的Billing，就會發現這是一筆成本。尤其是早起base在ec2的老服務容易遇到這種狀況(淚)
+不過，這幾年在AWS架構上逐漸推廣VPC Endpoint的方式來提供給內部服務存取S3/DynamoDB。
+如此一來便不用特別配製Nat Gateway也可以省下一筆費用。可以參考官方的說明
+此外，利用VPC Endpoint後，我們也可以在Security上透過policy來更安全的存取相關的資源，比如我們可以限制S3 Bucket只能透過特定的Endpoint來存取"/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>AWS NatGateway Cost Optimization筆記
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Tue, Jul 7, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>很多人初學AWS應該都會認識Nat Gateway這個服務，並且部署在Public Subnet裡提供給Private Subnet中的ＶＭ對外的存取。
+<img src="https://docs.aws.amazon.com/zh_tw/vpc/latest/userguide/images/nat-gateway-diagram.png" alt="img"></p>
+<p>不過其實你的application對外有大量對於S3或是dynamoDB大量的存取，可以搭配<a href="https://aws.amazon.com/tw/vpc/pricing/">Pricing文件</a>然後再搭配你的Billing，就會發現這是一筆成本。尤其是早起base在ec2的老服務容易遇到這種狀況(淚)</p>
+<p>不過，這幾年在AWS架構上逐漸推廣VPC Endpoint的方式來提供給內部服務存取S3/DynamoDB。</p>
+<p><img src="https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-endpoint-s3-diagram.png" alt="img"></p>
+<p>如此一來便不用特別配製Nat Gateway也可以省下一筆費用。可以參考官方的<a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html">說明</a></p>
+<p>此外，利用VPC Endpoint後，我們也可以在Security上透過policy來更安全的存取相關的資源，比如我們可以限制S3 Bucket只能透過特定的Endpoint來存取</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+  <span style="color:#f92672">&#34;Id&#34;</span>: <span style="color:#e6db74">&#34;Policy1415115909152&#34;</span>,
+  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;Sid&#34;</span>: <span style="color:#e6db74">&#34;Access-to-specific-VPCE-only&#34;</span>,
+      <span style="color:#f92672">&#34;Principal&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:*&#34;</span>,
+      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Deny&#34;</span>,
+      <span style="color:#f92672">&#34;Resource&#34;</span>: [<span style="color:#e6db74">&#34;arn:aws:s3:::my_secure_bucket&#34;</span>,
+                   <span style="color:#e6db74">&#34;arn:aws:s3:::my_secure_bucket/*&#34;</span>],
+      <span style="color:#f92672">&#34;Condition&#34;</span>: {
+        <span style="color:#f92672">&#34;StringNotEquals&#34;</span>: {
+          <span style="color:#f92672">&#34;aws:sourceVpce&#34;</span>: <span style="color:#e6db74">&#34;vpce-1a2b3c4d&#34;</span>
+        }
+      }
+    }
+  ]
+}
+</code></pre></div><p>除了Bucket的限制之外，也可以透過IAM上的policy來讓存取的更安全，更多的policy範本可以參考官方的<a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html#vpc-endpoints-policies-s3">文件</a></p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/aws/">AWS</a><a class="tag" href="/tags/amazon/">amazon</a><a class="tag" href="/tags/cost-optimization/">Cost Optimization</a><a class="tag" href="/tags/natgateway/">NatGateway</a><a class="tag" href="/tags/billing/">Billing</a><a class="tag" href="/tags/cc2/">cc2</a><a class="tag" href="/tags/s3/">s3</a><a class="tag" href="/tags/vpc/">VPC</a><a class="tag" href="/tags/endpoint/">Endpoint</a><a class="tag" href="/tags/dynamodb/">DynamoDB</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

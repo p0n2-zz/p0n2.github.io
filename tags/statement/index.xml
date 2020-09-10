@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>statement on p0n2&#39;s Blog</title>
+    <link>/tags/statement/</link>
+    <description>Recent content in statement on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/statement/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang switch statement筆記</title>
+      <link>/post/2020_04_switch_statement_in_go/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_switch_statement_in_go/</guid>
+      <description>0. switch statement basic 1. multiple case expressions 2. non-constants case expressions 3.</description>
+    </item>
+    
+  </channel>
+</rss>

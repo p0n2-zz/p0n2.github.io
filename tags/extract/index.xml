@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extract on p0n2&#39;s Blog</title>
+    <link>/tags/extract/</link>
+    <description>Recent content in Extract on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/extract/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>常用的Golang RegExp 範例筆記</title>
+      <link>/post/2020_04_golang_reg_exp_example/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_golang_reg_exp_example/</guid>
+      <description>0. Intro 1. Extract text between square brackets 2. Extract text between parentheses 3.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | AWS ElasticSearch/ES 筆記 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2020_07_aws_es_all/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS ElasticSearch/ES 筆記"/>
+<meta name="twitter:description" content="1. Launch AWS ES Domain  1.1 Domain的Deployment位置 1.2 怎麼決定ES Domain Sizing 1."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>AWS ElasticSearch/ES 筆記
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Tue, Jun 30, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <ul>
+<li><a href="#1-launch-aws-es-domain">1. Launch AWS ES Domain</a>
+<ul>
+<li><a href="#11-domain%E7%9A%84deployment%E4%BD%8D%E7%BD%AE">1.1 Domain的Deployment位置</a></li>
+<li><a href="#12-%E6%80%8E%E9%BA%BC%E6%B1%BA%E5%AE%9Aes-domain-sizing">1.2 怎麼決定ES Domain Sizing</a></li>
+<li><a href="#13-%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%9C%89%E7%99%BB%E5%85%A5%E6%A9%9F%E5%88%B6">1.3 是否需要有登入機制</a></li>
+<li><a href="#14-%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%9C%89multi-level%E7%9A%84%E6%AC%8A%E9%99%90">1.4 是否需要有multi-level的權限</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%82%B3%E9%80%81%E8%B3%87%E6%96%99%E5%88%B0aws-es">2. 傳送資料到AWS ES</a>
+<ul>
+<li><a href="#21-%E5%8D%B3%E6%99%82">2.1 即時</a>
+<ul>
+<li><a href="#211-%E5%9C%A8ec2%E4%B8%8A%E9%80%8F%E9%81%8Elogstash%E5%82%B3%E9%80%81%E8%87%B3es">2.1.1. 在EC2上透過Logstash傳送至ES</a></li>
+<li><a href="#212-%E5%B0%87cloud-watch-log%E8%A8%82%E9%96%B1%E5%8D%B3%E6%99%82%E8%99%95%E7%90%86%E5%88%B0es">2.1.2. 將Cloud Watch Log訂閱即時處理到ES</a></li>
+<li><a href="#213-%E5%B0%87cloud-watch-log%E8%A8%82%E9%96%B1%E8%87%B3lambda%E5%86%8D%E8%BD%89%E8%87%B3es">2.1.3. 將Cloud Watch Log訂閱至Lambda再轉至ES</a></li>
+<li><a href="#214-%E5%B0%87cloud-watch-log%E8%A8%82%E9%96%B1%E8%87%B3kinesis-stream%E5%86%8D%E5%88%B0es">2.1.4. 將Cloud Watch Log訂閱至Kinesis Stream再到ES</a></li>
+</ul>
+</li>
+<li><a href="#22-%E5%BB%B6%E9%81%B2">2.2 延遲</a>
+<ul>
+<li><a href="#221-%E5%B0%87cloud-watch-log%E8%A8%82%E9%96%B1%E8%87%B3kinesis-firehose--s3-%E5%86%8D%E5%88%B0es">2.2.1. 將Cloud Watch Log訂閱至Kinesis Firehose + S3 再到ES</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-aws-es-domain%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C">3. AWS ES Domain常見問題</a></li>
+</ul>
+<h2 id="1-launch-aws-es-domain">1. Launch AWS ES Domain</h2>
+<p>基本上，目前在AWS上launch一個ElasticSearch的服務基本上不是太困難，按照官方的<a href="https://docs.aws.amazon.com/zh_tw/elasticsearch-service/latest/developerguide/es-createupdatedomains.html">教學</a>基本上都可以把service ready。不過有幾個需要注意的小地方還滿值得note起來的</p>
+<h3 id="11-domain的deployment位置">1.1 Domain的Deployment位置</h3>
+<p>在launch ES時可以選擇要在 VPC內或是外，目前手上遇到的兩種情境如下</p>
+<ul>
+<li>
+<p>VPC內：目前內部會透過 Kibana 在Dev team的電視牆上展示telemetry，不過有的前提是目前我們的開發網路環境有跟VPC的網路透過 AWS Transit GW連線，所以我們可以輕易的在電視上show出kibana dashboard，如果沒有這樣的網路環境可能要考慮透過Site2Site VPN或是透過 Bastion server + SSH tunnel來瀏覽kibana。</p>
+</li>
+<li>
+<p>VPC外：主要是有一些sales相關的telemetry需要在es上展示，並提供給在不同國家的sale登入做資料的query，因為是public的es domain，所以有額外加了cognito與open distro來控制權限。</p>
+</li>
+</ul>
+<h3 id="12-怎麼決定es-domain-sizing">1.2 怎麼決定ES Domain Sizing</h3>
+<p>在launch ES之前，有個很重要的是要決定你預計會有多少Size的資料或log會餵進ES中</p>
+<p>資料producer數量 x 每個producer的 daily data size X 預計要在es裡保留的資料天數</p>
+<p>或是service以API Gateway + Lambda 為主的服務，也可以透過把CloudWatch Log export出來大約就可以知道每天會產生的資料量
+有了原始資料的size就可以開始計算Shard count以及所需要的ES Instance Type</p>
+<p>如果你想要了解Domain sizing的簡單計算，可以參考先前的這篇<a href="https://www.p0n2.net/2020/05/aws-elasticsearch-cluster-sizing.html">心得</a></p>
+<h3 id="13-是否需要有登入機制">1.3 是否需要有登入機制</h3>
+<p>如果需要，請記得enable &ldquo;Enable Amazon Cognito authentication&rdquo;，這樣可以限制使用者必須要先登入才能存取ES，同時也可以限制不同的IAM role可以存取的index resource。請參考<a href="https://docs.aws.amazon.com/zh_tw/elasticsearch-service/latest/developerguide/es-cognito-auth.html#es-cognito-auth-granular">這裏</a></p>
+<h3 id="14-是否需要有multi-level的權限">1.4 是否需要有multi-level的權限</h3>
+<p>如果你的ES應用需要區分區</p>
+<ul>
+<li>Sales/Dev manager/Admin: 有權限可以新增或設定Kibana上的Visualization或是Dashboard內容。</li>
+<li>Sales/Developer/Viewer：只能瀏覽設定好的dashboard，不能query log跟access kibana左側menu上的其他功能。</li>
+</ul>
+<p>請記得在launch ES時enable &ldquo;Fine-grained access control&rdquo;，之後在另外開一篇post整理這邊的post。</p>
+<p><code>ES Domain一但launch後便不能再修改這個設定，只能重新開一個新的domain。</code></p>
+<h2 id="2-傳送資料到aws-es">2. 傳送資料到AWS ES</h2>
+<h3 id="21-即時">2.1 即時</h3>
+<p>目前有遇到的case應該可以歸類這幾種</p>
+<h4 id="211-在ec2上透過logstash傳送至es">2.1.1. 在EC2上透過Logstash傳送至ES</h4>
+<p>如果你先前有透過logstash將log送往elasticsearch的經驗，應該會熟悉下方的設定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">output {
+	elasticsearch {
+	index =&gt; &#34;log-%{+YYYY.MM.dd}&#34;
+	}
+}
+</code></pre></div><p>這邊需要注意的是如果要將logstash將log送往AWS ES，需要透過另一個logstash output plugin <a href="https://github.com/awslabs/logstash-output-amazon_es">logstash-output-amazon_es</a>，並將output的部分稍微調成一下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">output {
+	amazon_es {
+		hosts =&gt; [&#34;foo.us-east-1.es.amazonaws.com&#34;]
+		region =&gt; &#34;us-east-1&#34;
+		# aws_access_key_id and aws_secret_access_key are optional if instance profile is configured
+		aws_access_key_id =&gt; &#39;ACCESS_KEY&#39;
+		aws_secret_access_key =&gt; &#39;SECRET_KEY&#39;
+		index =&gt; &#34;production-logs-%{+YYYY.MM.dd}&#34;
+	}
+}
+</code></pre></div><h4 id="212-將cloud-watch-log訂閱即時處理到es">2.1.2. 將Cloud Watch Log訂閱即時處理到ES</h4>
+<p>將CloudWatch LogGroup 的訂閱至ES中，可以透過web console中，先到web console CloudWatch &gt; CloudWatch Logs &gt; Log groups中選擇你要的LogGroup，再選擇右上角的Action選擇“Create Elasticsearch subscription filter“，便可以透過console選擇目標的ES Cluster。</p>
+<h4 id="213-將cloud-watch-log訂閱至lambda再轉至es">2.1.3. 將Cloud Watch Log訂閱至Lambda再轉至ES</h4>
+<p>透過web console CloudWatch &gt; CloudWatch Logs &gt; Log groups中選擇你要的LogGroup，再選擇右上角的Action選擇“Create Lambda subscription filter“，將log Streaming到lambda中，然後再forward到AWS ES中。詳細設定可以參考<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#LambdaFunctionExample">連結</a></p>
+<h4 id="214-將cloud-watch-log訂閱至kinesis-stream再到es">2.1.4. 將Cloud Watch Log訂閱至Kinesis Stream再到ES</h4>
+<p>如果你的服務有需要針對service/application所產生的log做一些即時的分析或是filter，可以考慮用AWS Kinesis服務。AWS官方<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample">文件</a>也寫的算詳細，不過還是有一些設定的細節，之後有機會再來分享。</p>
+<h3 id="22-延遲">2.2 延遲</h3>
+<h4 id="221-將cloud-watch-log訂閱至kinesis-firehose--s3-再到es">2.2.1. 將Cloud Watch Log訂閱至Kinesis Firehose + S3 再到ES</h4>
+<p>如同前述的Kinesis服務，AWS 也提供了另一個Kinesis Firehose服務，可以透過時間或是buffer size來累積一定資料量再往後做處理，同時firehose可以協助將log同步儲存指定的S3 Bucket中。</p>
+<p>流程上會類似 CloudWatchLog -&gt; Firehose delivery Stream -&gt; S3 -&gt; ES</p>
+<p>可以參考<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample">連結</a></p>
+<h2 id="3-aws-es-domain常見問題">3. AWS ES Domain常見問題</h2>
+<p>最後，有一些常見的AWS ES問題note</p>
+<p><a href="https://www.p0n2.net/2020/08/aws-elasticsearch-cluster-status.html">AWS ElasticSearch Cluster status red/yellow</a>
+<a href="https://www.p0n2.net/2020/06/aws-elasticsearch.html">AWS ElasticSearch 常見錯誤處理</a></p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/aws/">AWS</a><a class="tag" href="/tags/amazon/">amazon</a><a class="tag" href="/tags/es/">ES</a><a class="tag" href="/tags/elastic/">Elastic</a><a class="tag" href="/tags/elasticsearch/">ElasticSearch</a><a class="tag" href="/tags/elk/">ELK</a><a class="tag" href="/tags/elkstack/">ELKStack</a><a class="tag" href="/tags/cluster/">Cluster</a><a class="tag" href="/tags/shard/">shard</a><a class="tag" href="/tags/indices/">indices</a><a class="tag" href="/tags/clusterblockexception/">ClusterBlockException</a><a class="tag" href="/tags/jvmmemorypressure/">JVMMemoryPressure</a><a class="tag" href="/tags/automatedsnapshotfailure/">AutomatedSnapshotFailure</a><a class="tag" href="/tags/clusterindexwritesblocked/">ClusterIndexWritesBlocked</a><a class="tag" href="/tags/freestoragespace/">FreeStorageSpace</a><a class="tag" href="/tags/clusterstatus/">ClusterStatus</a><a class="tag" href="/tags/kinesis/">Kinesis</a><a class="tag" href="/tags/firehose/">Firehose</a><a class="tag" href="/tags/s3/">S3</a><a class="tag" href="/tags/cloud-watch/">Cloud Watch</a><a class="tag" href="/tags/kibana/">kibana</a><a class="tag" href="/tags/cognito/">Cognito</a><a class="tag" href="/tags/fine-grained/">Fine-grained</a><a class="tag" href="/tags/logstash/">logstash</a><a class="tag" href="/tags/ec2/">EC2</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

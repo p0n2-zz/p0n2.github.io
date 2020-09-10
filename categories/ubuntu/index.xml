@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on p0n2&#39;s Blog</title>
+    <link>/categories/ubuntu/</link>
+    <description>Recent content in Ubuntu on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[菜單]developer開發機 ubuntu 18.04 x ASRock Deskmini B360</title>
+      <link>/post/2020_03_deskmini_ubuntu/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_03_deskmini_ubuntu/</guid>
+      <description>0. Intro 1. 需求 2. Final Solution  0. Intro 在前一陣子手邊的Mac mini逐漸凋零之後,一直在想說要來弄一台電腦來代替它，東看西看考慮了好多</description>
+    </item>
+    
+  </channel>
+</rss>

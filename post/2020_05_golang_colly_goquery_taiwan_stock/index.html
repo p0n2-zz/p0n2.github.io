@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | yahoo股票爬蟲 - Golang/Colly/Goquery </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2020_05_golang_colly_goquery_taiwan_stock/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="yahoo股票爬蟲 - Golang/Colly/Goquery"/>
+<meta name="twitter:description" content="0. Intro 1. Sample Code 2. 聊聊細節  2.1 Colly Basic &amp; Queue 2."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>yahoo股票爬蟲 - Golang/Colly/Goquery
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sun, May 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <ul>
+<li><a href="#0-intro">0. Intro</a></li>
+<li><a href="#1-sample-code">1. Sample Code</a></li>
+<li><a href="#2-%E8%81%8A%E8%81%8A%E7%B4%B0%E7%AF%80">2. 聊聊細節</a>
+<ul>
+<li><a href="#21-colly-basic--queue">2.1 Colly Basic &amp; Queue</a></li>
+<li><a href="#22-ssl-ignore">2.2 SSL Ignore</a></li>
+<li><a href="#23-cookie">2.3 Cookie</a></li>
+<li><a href="#24-domain-limit--filter">2.4 Domain Limit &amp; filter</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="0-intro">0. Intro</h2>
+<p>雖然golang已經內建http讓engineer可以快速的搭配<a href="https://github.com/PuerkitoBio/goquery">Goquery</a>來應付爬取回來的網頁，不過我還是喜歡<a href="https://github.com/gocolly/colly">Colly</a>的優雅XD</p>
+<p>下面的範例我們將會有綜合範例來講解透過Colly的queue機制來將想爬的網頁優雅的爬回來，再透過Colly的query selector以及Goqeury的DOM Selector來萃取我們想要的資訊。</p>
+<p>先看code&amp;run，最後再詳細的解釋更多的細節。</p>
+<h2 id="1-sample-code">1. Sample Code</h2>
+<p>下面是一個簡單透過Golang來獲取的Yahoo股市個股頁面的簡單Colly爬蟲，這邊我們以爬台積電(2330)，鴻海(2317)和大立光(3008)這三檔台股中熱門的股票為例，依序回傳個股的收盤價。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;crypto/tls&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+
+	<span style="color:#e6db74">&#34;net/http&#34;</span>
+	<span style="color:#e6db74">&#34;net/http/cookiejar&#34;</span>
+
+	<span style="color:#e6db74">&#34;github.com/gocolly/colly&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/gocolly/colly/queue&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">jar</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cookiejar</span>.<span style="color:#a6e22e">New</span>(<span style="color:#66d9ef">nil</span>)
+
+	<span style="color:#75715e">// Instantiate default collector
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">NewCollector</span>(
+		<span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">AllowedDomains</span>(<span style="color:#e6db74">&#34;tw.stock.yahoo.com&#34;</span>)
+	)
+
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">WithTransport</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Transport</span>{
+		<span style="color:#a6e22e">TLSClientConfig</span>: <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">tls</span>.<span style="color:#a6e22e">Config</span>{<span style="color:#a6e22e">InsecureSkipVerify</span>: <span style="color:#66d9ef">true</span>},
+	})
+
+	<span style="color:#75715e">//setup our client based on the cookies data
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">SetCookieJar</span>(<span style="color:#a6e22e">jar</span>)
+
+	<span style="color:#a6e22e">q</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">New</span>(
+		<span style="color:#ae81ff">1</span>, <span style="color:#75715e">// Number of consumer threads
+</span><span style="color:#75715e"></span>		<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">InMemoryQueueStorage</span>{<span style="color:#a6e22e">MaxSize</span>: <span style="color:#ae81ff">100000</span>}, <span style="color:#75715e">// Use default queue storage
+</span><span style="color:#75715e"></span>	)
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddURL</span>(<span style="color:#e6db74">&#34;https://tw.stock.yahoo.com/q/q?s=2330&#34;</span>)
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddURL</span>(<span style="color:#e6db74">&#34;https://tw.stock.yahoo.com/q/q?s=2317&#34;</span>)
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddURL</span>(<span style="color:#e6db74">&#34;https://tw.stock.yahoo.com/q/q?s=3008&#34;</span>)
+
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">OnHTML</span>(<span style="color:#e6db74">&#34;body&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">HTMLElement</span>) {
+
+		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DOM</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;table&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;td&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;a&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Text</span>()
+		<span style="color:#a6e22e">price</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DOM</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;table&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;td&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">7</span>).<span style="color:#a6e22e">Text</span>()
+
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">price</span>)
+	})
+
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">OnRequest</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">Request</span>) {
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Visiting&#34;</span>, <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">URL</span>.<span style="color:#a6e22e">String</span>())
+	})
+
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">c</span>)
+}
+</code></pre></div><p>執行之後，應該可以得到下面的執行結果<br>
+Visiting <a href="https://tw.stock.yahoo.com/q/q?s=2330">https://tw.stock.yahoo.com/q/q?s=2330</a><br>
+2330台積電 295.5<br>
+Visiting <a href="https://tw.stock.yahoo.com/q/q?s=2317">https://tw.stock.yahoo.com/q/q?s=2317</a><br>
+2317鴻海 74.1<br>
+Visiting <a href="https://tw.stock.yahoo.com/q/q?s=3008">https://tw.stock.yahoo.com/q/q?s=3008</a><br>
+3008大立光 3960</p>
+<h2 id="2-聊聊細節">2. 聊聊細節</h2>
+<h3 id="21-colly-basic--queue">2.1 Colly Basic &amp; Queue</h3>
+<p>首先先init colly的collector以及colly queue，簡單想像collector就是一隻爬蟲，然後在queue中指定queue的最大task數量以及同時可以有幾隻collector同時處理。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">NewCollector</span>()
+
+<span style="color:#a6e22e">q</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">New</span>(
+	<span style="color:#ae81ff">1</span>, <span style="color:#75715e">// Number of consumer threads
+</span><span style="color:#75715e"></span>	<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">InMemoryQueueStorage</span>{<span style="color:#a6e22e">MaxSize</span>: <span style="color:#ae81ff">100000</span>}, <span style="color:#75715e">// Use default queue storage
+</span><span style="color:#75715e"></span>
+)
+
+<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddURL</span>(<span style="color:#e6db74">&#34;https://tw.stock.yahoo.com/q/q?s=2330&#34;</span>)
+
+<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">c</span>)
+</code></pre></div><p>每一隻collector出發後等到目標網頁response後，colly預設的api提供使用者可以透過css classname <code>c.OnHTML(&quot;.stock-name&quot;, func(e *colly.HTMLElement){})</code> 或是id <code>c.OnHTML(&quot;#stock-name&quot;, func(e *colly.HTMLElement){})</code>跟常用的html selector的方法差不多，不過如果遇到老網頁 OTZ是用table排版，可以像範例中一樣r就從body來並搭配Goquery來指定DOM找出想要的資訊。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">OnHTML</span>(<span style="color:#e6db74">&#34;body&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">HTMLElement</span>) {
+	<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DOM</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;table&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;td&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;a&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">Text</span>()
+	<span style="color:#a6e22e">price</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">DOM</span>.<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;table&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">2</span>).<span style="color:#a6e22e">Find</span>(<span style="color:#e6db74">&#34;td&#34;</span>).<span style="color:#a6e22e">Eq</span>(<span style="color:#ae81ff">7</span>).<span style="color:#a6e22e">Text</span>()
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">price</span>)
+})
+</code></pre></div><h3 id="22-ssl-ignore">2.2 SSL Ignore</h3>
+<p>雖然https已經推廣很久了，但還是偶爾會遇到ssl設定fail或是過期的網站，可以在colly的config中先略過不安全的憑證。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">WithTransport</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Transport</span>{
+	<span style="color:#a6e22e">TLSClientConfig</span>: <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">tls</span>.<span style="color:#a6e22e">Config</span>{<span style="color:#a6e22e">InsecureSkipVerify</span>: <span style="color:#66d9ef">true</span>},
+})
+</code></pre></div><h3 id="23-cookie">2.3 Cookie</h3>
+<p>就是那塊餅乾，雖然在本範例中不需要，不過範例中已經附上。詳細的設定可以參考<a href="https://golang.org/pkg/net/http/cookiejar/#pkg-overview">範例</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">jar</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cookiejar</span>.<span style="color:#a6e22e">New</span>(<span style="color:#66d9ef">nil</span>)
+<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">SetCookieJar</span>(<span style="color:#a6e22e">jar</span>)
+</code></pre></div><h3 id="24-domain-limit--filter">2.4 Domain Limit &amp; filter</h3>
+<p>常見的貪心爬蟲常常會用下面方法來看到連結就爬，colly也可以支援你把通通要爬的url通通塞到queue裡，而且還會自動的幫你過濾重複的URL（貼心XD）。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">OnHTML</span>(<span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">HTMLElement</span>){
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">AddURL</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Attr</span>(<span style="color:#e6db74">&#34;href&#34;</span>))
+})
+</code></pre></div><p>為了避免太多的垃圾url進queue裡，可以先定要處理的domain name</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">colly</span>.<span style="color:#a6e22e">AllowedDomains</span>(<span style="color:#e6db74">&#34;tw.stock.yahoo.com&#34;</span>)
+</code></pre></div><p>更進階一點可以透過colly的<a href="http://go-colly.org/docs/examples/url_filter/">url filter</a>來處理。</p>
+<p>以上，這樣基本的範例應該可以應付超過七成目前的網頁了。如果需要更進一步的資訊，可以參考colly的<a href="http://go-colly.org/docs/examples/cryptocoinmarketcap/">官方文件</a>。</p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/colly/">Colly</a><a class="tag" href="/tags/goquery/">Goquery</a><a class="tag" href="/tags/twstock/">TWStock</a><a class="tag" href="/tags/golang%E7%88%AC%E8%9F%B2/">golang爬蟲</a><a class="tag" href="/tags/%E7%88%AC%E8%9F%B2/">爬蟲</a><a class="tag" href="/tags/web-spider/">web Spider</a><a class="tag" href="/tags/crawler/">crawler</a><a class="tag" href="/tags/dom/">DOM</a><a class="tag" href="/tags/ssl/">SSL</a><a class="tag" href="/tags/cookie/">cookie</a><a class="tag" href="/tags/2330%E5%8F%B0%E7%A9%8D%E9%9B%BB/">2330台積電</a><a class="tag" href="/tags/2317%E9%B4%BB%E6%B5%B7/">2317鴻海</a><a class="tag" href="/tags/3008%E5%A4%A7%E7%AB%8B%E5%85%89/">3008大立光</a><a class="tag" href="/tags/queue/">queue</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

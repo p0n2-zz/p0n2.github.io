@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS Backup on p0n2&#39;s Blog</title>
+    <link>/tags/aws-backup/</link>
+    <description>Recent content in AWS Backup on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 03 Mar 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/aws-backup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS Backup定時備份RDS</title>
+      <link>/post/2020_03_aws_backup_rds/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_03_aws_backup_rds/</guid>
+      <description>0. Intro 1. 認識AWS Backup 2. 透過Web console來建立AWS Backup  2.</description>
+    </item>
+    
+  </channel>
+</rss>

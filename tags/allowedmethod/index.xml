@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AllowedMethod on p0n2&#39;s Blog</title>
+    <link>/tags/allowedmethod/</link>
+    <description>Recent content in AllowedMethod on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 29 Jun 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/allowedmethod/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS S3 Enable CORS</title>
+      <link>/post/2020_06_s3_enable_cors/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_06_s3_enable_cors/</guid>
+      <description>有的時候如果S3的要開放給不同的Client做存取資源的話，難免會遇到CORS的Error Message。 這個時候我們可以先到AWS Web console &amp;gt; S3 &amp;gt; Bucket &amp;gt; Permission &amp;gt; CORS configuration 可以輸入下面的設定</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | AWS lambda常見的使用範例 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/post/2020_04_most_common_case_of_lambda/">
+    
+    
+    <script type="text/javascript" src="/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AWS lambda常見的使用範例"/>
+<meta name="twitter:description" content="0. Intro  1. Automation 2. Data Transformation 3. API Service 4."/>
+
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>AWS lambda常見的使用範例
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Sun, Apr 5, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <ul>
+<li><a href="#0-intro">0. Intro</a>
+<ul>
+<li><a href="#1-automation">1. Automation</a></li>
+<li><a href="#2-data-transformation">2. Data Transformation</a></li>
+<li><a href="#3-api-service">3. API Service</a></li>
+<li><a href="#4-message-processing">4. Message Processing</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="0-intro">0. Intro</h2>
+<p>對於一個已經雙腳踏入AWS雲中的雜端工程師而言，lambda已經被置入每天的生活中了，記得前輩曾經說過，如果開會時PM問了一些AWS的問題而你有聽沒有懂的話，可以用萬用回答來回應牠，&ldquo;可以把資料先放到S3我們再研究看看怎麼用lambda來處裡&rdquo;，一直到若干年後，我才發現這句話真的是真理。下面我們就來小小的歸類一下lambda常見的應用。</p>
+<h3 id="1-automation">1. Automation</h3>
+<p>對於SRE或是DevOps來說，最常用lambda來處理的事情應該就是AWS上的各種維護自動化了，例如</p>
+<ol>
+<li>利用lambda每天定時偵測沒上Tag的機器</li>
+<li><a href="https://www.p0n2.net/2020/04/aws-lambdaec2-instance.html">利用lambda每天定時開機/關機EC2</a></li>
+<li>利用lambda每天定時寄信給老婆提醒會晚一點下班XD</li>
+</ol>
+<h3 id="2-data-transformation">2. Data Transformation</h3>
+<p>對於Backend Engineer來說，Lambda對於AWS上各種資料儲存服務的高整合性是一個砂鍋大的優點，除了常見的CURD，也滿常有工程師會透過lambda來對資料庫中的資料做數量的計算與資料過濾或分析等應用。</p>
+<ol>
+<li>lambda+RDS/Aurora的CRUD</li>
+<li>Lambda+DynamoDB的CRUD</li>
+<li>Lambda+S3的批次處理</li>
+<li><a href="https://www.p0n2.net/2020/04/0.html">透過event來偵測S3新上傳的檔案並透過lambda來自動複製Object</a></li>
+</ol>
+<h3 id="3-api-service">3. API Service</h3>
+<p>對於Frondend Engineer來說，有了lambda後只需要透過API Gateway＋Lambda，就可以快速的deploy後端的API server，並且因為serverless的關係，也不用去處理各式各樣的operation問題，江湖上傳說前端工程師延展AWS技能數的lesson 1。</p>
+<ol>
+<li>API Gateway + Lambda打造不會死的API Service</li>
+<li>Lambda+API Gateway的安全認證</li>
+</ol>
+<h3 id="4-message-processing">4. Message Processing</h3>
+<p>最後是這陣子處理最多的lambda應用(汗，透過lambda與整合SNS/SQS來發布各式各樣的notification或是decouple message，然後你就會掉進AWS IoT的坑了(回音)</p>
+<ol>
+<li>Lambda+SQS</li>
+<li>Lambda+SES</li>
+<li>Lambda+AWS IoT Event</li>
+</ol>
+<p>礙於有些code跟工作有關，之後再陸續整理其他sample放上來。</p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>  
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/aws/">AWS</a><a class="tag" href="/tags/amazon/">amazon</a><a class="tag" href="/tags/lambda/">Lambda</a><a class="tag" href="/tags/devops/">Devops</a><a class="tag" href="/tags/cloud/">Cloud</a><a class="tag" href="/tags/serverless/">Serverless</a><a class="tag" href="/tags/micro-service/">micro service</a><a class="tag" href="/tags/api-gateway/">API Gateway</a><a class="tag" href="/tags/sqs/">SQS</a><a class="tag" href="/tags/sns/">SNS</a><a class="tag" href="/tags/ec2/">EC2</a><a class="tag" href="/tags/rds/">RDS</a><a class="tag" href="/tags/aurora/">Aurora</a><a class="tag" href="/tags/crud/">CRUD</a><a class="tag" href="/tags/dynamodb/">DynamoDB</a><a class="tag" href="/tags/s3/">S3</a><a class="tag" href="/tags/cloudwatch/">Cloudwatch</a><a class="tag" href="/tags/batch/">batch</a><a class="tag" href="/tags/iot/">IOT</a><a class="tag" href="/tags/operation/">operation</a><a class="tag" href="/tags/devops/">devops</a><a class="tag" href="/tags/automation/">automation</a></span>
+
+      </div>
+    </div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

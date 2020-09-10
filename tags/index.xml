@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on p0n2&#39;s Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>brew</title>
+      <link>/tags/brew/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/brew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>django</title>
+      <link>/tags/django/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docstring</title>
+      <link>/tags/docstring/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/docstring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>extension</title>
+      <link>/tags/extension/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IntelliCode</title>
+      <link>/tags/intellicode/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/intellicode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pip</title>
+      <link>/tags/pip/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/pip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python3</title>
+      <link>/tags/python3/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/python3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>robot framework</title>
+      <link>/tags/robot-framework/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/robot-framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>/tags/vscode/</link>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amazon</title>
+      <link>/tags/amazon/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Billing</title>
+      <link>/tags/billing/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/billing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cc2</title>
+      <link>/tags/cc2/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cc2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cost Optimization</title>
+      <link>/tags/cost-optimization/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cost-optimization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DynamoDB</title>
+      <link>/tags/dynamodb/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/dynamodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Endpoint</title>
+      <link>/tags/endpoint/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/endpoint/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NatGateway</title>
+      <link>/tags/natgateway/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/natgateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>/tags/s3/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VPC</title>
+      <link>/tags/vpc/</link>
+      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/vpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AutomatedSnapshotFailure</title>
+      <link>/tags/automatedsnapshotfailure/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/automatedsnapshotfailure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Watch</title>
+      <link>/tags/cloud-watch/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cloud-watch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cluster</title>
+      <link>/tags/cluster/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cluster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClusterBlockException</title>
+      <link>/tags/clusterblockexception/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/clusterblockexception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClusterIndexWritesBlocked</title>
+      <link>/tags/clusterindexwritesblocked/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/clusterindexwritesblocked/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClusterStatus</title>
+      <link>/tags/clusterstatus/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/clusterstatus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cognito</title>
+      <link>/tags/cognito/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cognito/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>/tags/ec2/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elastic</title>
+      <link>/tags/elastic/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/elastic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ElasticSearch</title>
+      <link>/tags/elasticsearch/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ELK</title>
+      <link>/tags/elk/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/elk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ELKStack</title>
+      <link>/tags/elkstack/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/elkstack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ES</title>
+      <link>/tags/es/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/es/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fine-grained</title>
+      <link>/tags/fine-grained/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/fine-grained/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firehose</title>
+      <link>/tags/firehose/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/firehose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FreeStorageSpace</title>
+      <link>/tags/freestoragespace/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/freestoragespace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>indices</title>
+      <link>/tags/indices/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/indices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JVMMemoryPressure</title>
+      <link>/tags/jvmmemorypressure/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/jvmmemorypressure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kibana</title>
+      <link>/tags/kibana/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/kibana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kinesis</title>
+      <link>/tags/kinesis/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/kinesis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>logstash</title>
+      <link>/tags/logstash/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/logstash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shard</title>
+      <link>/tags/shard/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/shard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AllowedHeader</title>
+      <link>/tags/allowedheader/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/allowedheader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AllowedMethod</title>
+      <link>/tags/allowedmethod/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/allowedmethod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AllowedOrigin</title>
+      <link>/tags/allowedorigin/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/allowedorigin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bucket</title>
+      <link>/tags/bucket/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/bucket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CORS</title>
+      <link>/tags/cors/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CORSRule</title>
+      <link>/tags/corsrule/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/corsrule/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Permission</title>
+      <link>/tags/permission/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/permission/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Policy</title>
+      <link>/tags/policy/</link>
+      <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/policy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Index Size</title>
+      <link>/tags/index-size/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/index-size/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sizing</title>
+      <link>/tags/sizing/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/sizing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2317鴻海</title>
+      <link>/tags/2317%E9%B4%BB%E6%B5%B7/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/2317%E9%B4%BB%E6%B5%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2330台積電</title>
+      <link>/tags/2330%E5%8F%B0%E7%A9%8D%E9%9B%BB/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/2330%E5%8F%B0%E7%A9%8D%E9%9B%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3008大立光</title>
+      <link>/tags/3008%E5%A4%A7%E7%AB%8B%E5%85%89/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/3008%E5%A4%A7%E7%AB%8B%E5%85%89/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Colly</title>
+      <link>/tags/colly/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/colly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cookie</title>
+      <link>/tags/cookie/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>crawler</title>
+      <link>/tags/crawler/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/crawler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DOM</title>
+      <link>/tags/dom/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/dom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>/tags/golang/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang爬蟲</title>
+      <link>/tags/golang%E7%88%AC%E8%9F%B2/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/golang%E7%88%AC%E8%9F%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Goquery</title>
+      <link>/tags/goquery/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/goquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>queue</title>
+      <link>/tags/queue/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSL</title>
+      <link>/tags/ssl/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TWStock</title>
+      <link>/tags/twstock/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/twstock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web Spider</title>
+      <link>/tags/web-spider/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/web-spider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>爬蟲</title>
+      <link>/tags/%E7%88%AC%E8%9F%B2/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/%E7%88%AC%E8%9F%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>constants</title>
+      <link>/tags/constants/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/constants/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fallthrough</title>
+      <link>/tags/fallthrough/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/fallthrough/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statement</title>
+      <link>/tags/statement/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/statement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>switch</title>
+      <link>/tags/switch/</link>
+      <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/switch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automation</title>
+      <link>/tags/automation/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>batch</title>
+      <link>/tags/batch/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/batch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>/tags/cloud/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloudwatch</title>
+      <link>/tags/cloudwatch/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cloudwatch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>/tags/devops/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IOT</title>
+      <link>/tags/iot/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>/tags/lambda/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>micro service</title>
+      <link>/tags/micro-service/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/micro-service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object</title>
+      <link>/tags/object/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/object/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>operation</title>
+      <link>/tags/operation/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/operation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverless</title>
+      <link>/tags/serverless/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API Gateway</title>
+      <link>/tags/api-gateway/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/api-gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aurora</title>
+      <link>/tags/aurora/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/aurora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CRUD</title>
+      <link>/tags/crud/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/crud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>log</title>
+      <link>/tags/log/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/log/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>net</title>
+      <link>/tags/net/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>parser</title>
+      <link>/tags/parser/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/parser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RDS</title>
+      <link>/tags/rds/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/rds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SNS</title>
+      <link>/tags/sns/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/sns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQS</title>
+      <link>/tags/sqs/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/sqs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>URL</title>
+      <link>/tags/url/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/url/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extract</title>
+      <link>/tags/extract/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/extract/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>/tags/regex/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular Expression</title>
+      <link>/tags/regular-expression/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snippets</title>
+      <link>/tags/snippets/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/snippets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS Backup</title>
+      <link>/tags/aws-backup/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/aws-backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloudformation</title>
+      <link>/tags/cloudformation/</link>
+      <pubDate>Tue, 03 Mar 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cloudformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>APIGateway</title>
+      <link>/tags/apigateway/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/apigateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS CLI</title>
+      <link>/tags/aws-cli/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/aws-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAM</title>
+      <link>/tags/sam/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/sam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sls</title>
+      <link>/tags/sls/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/sls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bastion</title>
+      <link>/tags/bastion/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/bastion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/tags/security/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>/tags/ssh/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>subnet</title>
+      <link>/tags/subnet/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/subnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tunnel</title>
+      <link>/tags/tunnel/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/tunnel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>container</title>
+      <link>/tags/container/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECR</title>
+      <link>/tags/ecr/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/ecr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ECS</title>
+      <link>/tags/ecs/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/ecs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fargate</title>
+      <link>/tags/fargate/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/fargate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>/tags/flask/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gin</title>
+      <link>/tags/gin/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/gin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Registry</title>
+      <link>/tags/registry/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/registry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RESTApi</title>
+      <link>/tags/restapi/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/restapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>/tags/blog/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cicd</title>
+      <link>/tags/cicd/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deploy</title>
+      <link>/tags/deploy/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>StaticSite</title>
+      <link>/tags/staticsite/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/staticsite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>靜態網頁</title>
+      <link>/tags/%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/%E9%9D%9C%E6%85%8B%E7%B6%B2%E9%A0%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beanstalk</title>
+      <link>/tags/beanstalk/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/beanstalk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>/tags/eks/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K8S</title>
+      <link>/tags/k8s/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“容器”</title>
+      <link>/tags/%E5%AE%B9%E5%99%A8/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0800</pubDate>
+      
+      <guid>/tags/%E5%AE%B9%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

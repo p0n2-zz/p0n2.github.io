@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API Gateway on p0n2&#39;s Blog</title>
+    <link>/tags/api-gateway/</link>
+    <description>Recent content in API Gateway on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/api-gateway/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS lambda常見的使用範例</title>
+      <link>/post/2020_04_most_common_case_of_lambda/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_most_common_case_of_lambda/</guid>
+      <description>0. Intro  1. Automation 2. Data Transformation 3. API Service 4.</description>
+    </item>
+    
+  </channel>
+</rss>

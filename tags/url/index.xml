@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>URL on p0n2&#39;s Blog</title>
+    <link>/tags/url/</link>
+    <description>Recent content in URL on p0n2&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/url/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang - URL string Parsing 筆記</title>
+      <link>/post/2020_04_golang_url_parse_intro/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
+      
+      <guid>/post/2020_04_golang_url_parse_intro/</guid>
+      <description>0. Intro 1. 範例  0. Intro 好一陣子以前在內部討論要怎麼對log裡的url再做整理時，當初有想到在透過golang的url parse先做整理過後，再塞回去json object中，雖然這個方案不是後來採用的，不過這兩天又翻到自己當初的範例，整理到blog上來。</description>
+    </item>
+    
+  </channel>
+</rss>
