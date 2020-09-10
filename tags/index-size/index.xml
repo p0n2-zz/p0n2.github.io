@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Index Size on p0n2&#39;s Blog</title>
-    <link>/tags/index-size/</link>
+    <link>https://p0n2.github.io/tags/index-size/</link>
     <description>Recent content in Index Size on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/index-size/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/index-size/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS ElasticSearch Cluster Sizing Practice 筆記</title>
-      <link>/post/2020_06_aws_es_sizing_example/</link>
+      <link>https://p0n2.github.io/post/2020_06_aws_es_sizing_example/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_06_aws_es_sizing_example/</guid>
+      <guid>https://p0n2.github.io/post/2020_06_aws_es_sizing_example/</guid>
       <description>1. Source Data Size 2. Index Size &amp;amp; Shard Count 3, Storage Requirement 4.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>StaticSite on p0n2&#39;s Blog</title>
-    <link>/tags/staticsite/</link>
+    <link>https://p0n2.github.io/tags/staticsite/</link>
     <description>Recent content in StaticSite on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Fri, 08 Nov 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/staticsite/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/staticsite/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Golang使用hugo搭建你的第一個blog</title>
-      <link>/post/2019_11_engaged_with_hugo/</link>
+      <link>https://p0n2.github.io/post/2019_11_engaged_with_hugo/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_11_engaged_with_hugo/</guid>
+      <guid>https://p0n2.github.io/post/2019_11_engaged_with_hugo/</guid>
       <description>在我們開始聊Hugo之前，先看看網路上大家都怎麼利用Hugo Show Case
 0. Prerequisite 在開始使用hugo之前，必須要先在你的環境中安裝hugo的cli。
 如過你是Mac/linux user，恭喜你！你只需要在你的terminal中輸入 （linux user如果無法執行brew command的話，請先安裝Homebrew-on-linux）</description>

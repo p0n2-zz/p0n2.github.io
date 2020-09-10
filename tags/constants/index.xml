@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>constants on p0n2&#39;s Blog</title>
-    <link>/tags/constants/</link>
+    <link>https://p0n2.github.io/tags/constants/</link>
     <description>Recent content in constants on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 26 Apr 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/constants/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/constants/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>golang switch statement筆記</title>
-      <link>/post/2020_04_switch_statement_in_go/</link>
+      <link>https://p0n2.github.io/post/2020_04_switch_statement_in_go/</link>
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_switch_statement_in_go/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_switch_statement_in_go/</guid>
       <description>0. switch statement basic 1. multiple case expressions 2. non-constants case expressions 3.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cicd on p0n2&#39;s Blog</title>
-    <link>/tags/cicd/</link>
+    <link>https://p0n2.github.io/tags/cicd/</link>
     <description>Recent content in cicd on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 21 Nov 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用AWS S3來部署Golang Hugo Blog靜態網頁</title>
-      <link>/post/2019_11_hugo_deployment/</link>
+      <link>https://p0n2.github.io/post/2019_11_hugo_deployment/</link>
       <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_11_hugo_deployment/</guid>
+      <guid>https://p0n2.github.io/post/2019_11_hugo_deployment/</guid>
       <description>0. Prerequisite 1. Create S3 Bucket and configuration 3. Summary  0.</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>p0n2&#39;s Blog</title>
-    <link>/</link>
+    <link>https://p0n2.github.io/</link>
     <description>Recent content on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>macOS設定Python3.8-VSCode開發環境</title>
-      <link>/post/2020_08_python3_installation_all/</link>
+      <link>https://p0n2.github.io/post/2020_08_python3_installation_all/</link>
       <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_08_python3_installation_all/</guid>
+      <guid>https://p0n2.github.io/post/2020_08_python3_installation_all/</guid>
       <description>1. macOS 上安裝 Python3.8 如果你的macOS已經是最新版本的話，預設下應該已經安裝好Python3.8
 如果沒有的話，我們可以透過Brew來安裝
 brew install python3 brew upgrade python@3.</description>
@@ -24,10 +24,10 @@ brew install python3 brew upgrade python@3.</description>
     
     <item>
       <title>AWS NatGateway Cost Optimization筆記</title>
-      <link>/post/2020_07_nat_gw_cost_optimized/</link>
+      <link>https://p0n2.github.io/post/2020_07_nat_gw_cost_optimized/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_07_nat_gw_cost_optimized/</guid>
+      <guid>https://p0n2.github.io/post/2020_07_nat_gw_cost_optimized/</guid>
       <description>很多人初學AWS應該都會認識Nat Gateway這個服務，並且部署在Public Subnet裡提供給Private Subnet中的ＶＭ對外的存取。 不過其實你的application對外有大量對於S3或是dynamoDB大量的存取，可以搭配Pricing文件然後再搭配你的Billing，就會發現這是一筆成本。尤其是早起base在ec2的老服務容易遇到這種狀況(淚)
 不過，這幾年在AWS架構上逐漸推廣VPC Endpoint的方式來提供給內部服務存取S3/DynamoDB。
 如此一來便不用特別配製Nat Gateway也可以省下一筆費用。可以參考官方的說明
@@ -36,172 +36,172 @@ brew install python3 brew upgrade python@3.</description>
     
     <item>
       <title>AWS ElasticSearch/ES 筆記</title>
-      <link>/post/2020_07_aws_es_all/</link>
+      <link>https://p0n2.github.io/post/2020_07_aws_es_all/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_07_aws_es_all/</guid>
+      <guid>https://p0n2.github.io/post/2020_07_aws_es_all/</guid>
       <description>1. Launch AWS ES Domain  1.1 Domain的Deployment位置 1.2 怎麼決定ES Domain Sizing 1.</description>
     </item>
     
     <item>
       <title>AWS S3 Enable CORS</title>
-      <link>/post/2020_06_s3_enable_cors/</link>
+      <link>https://p0n2.github.io/post/2020_06_s3_enable_cors/</link>
       <pubDate>Mon, 29 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_06_s3_enable_cors/</guid>
+      <guid>https://p0n2.github.io/post/2020_06_s3_enable_cors/</guid>
       <description>有的時候如果S3的要開放給不同的Client做存取資源的話，難免會遇到CORS的Error Message。 這個時候我們可以先到AWS Web console &amp;gt; S3 &amp;gt; Bucket &amp;gt; Permission &amp;gt; CORS configuration 可以輸入下面的設定</description>
     </item>
     
     <item>
       <title>AWS ElasticSearch Cluster Sizing Practice 筆記</title>
-      <link>/post/2020_06_aws_es_sizing_example/</link>
+      <link>https://p0n2.github.io/post/2020_06_aws_es_sizing_example/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_06_aws_es_sizing_example/</guid>
+      <guid>https://p0n2.github.io/post/2020_06_aws_es_sizing_example/</guid>
       <description>1. Source Data Size 2. Index Size &amp;amp; Shard Count 3, Storage Requirement 4.</description>
     </item>
     
     <item>
       <title>AWS ElasticSearch 常見錯誤處理</title>
-      <link>/post/2020_06_aws_es_exceptions/</link>
+      <link>https://p0n2.github.io/post/2020_06_aws_es_exceptions/</link>
       <pubDate>Fri, 12 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_06_aws_es_exceptions/</guid>
+      <guid>https://p0n2.github.io/post/2020_06_aws_es_exceptions/</guid>
       <description>1. High JVM Memory Pressure 2. High CPU Utilization 3.</description>
     </item>
     
     <item>
       <title>AWS ElasticSearch/ES Cluster status red/yellow</title>
-      <link>/post/2020_06_aws_es_cluster_status/</link>
+      <link>https://p0n2.github.io/post/2020_06_aws_es_cluster_status/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_06_aws_es_cluster_status/</guid>
+      <guid>https://p0n2.github.io/post/2020_06_aws_es_cluster_status/</guid>
       <description>1. 起手式 2. Cluster Status Yellow 3. Cluster Status Red  1.</description>
     </item>
     
     <item>
       <title>yahoo股票爬蟲 - Golang/Colly/Goquery</title>
-      <link>/post/2020_05_golang_colly_goquery_taiwan_stock/</link>
+      <link>https://p0n2.github.io/post/2020_05_golang_colly_goquery_taiwan_stock/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_05_golang_colly_goquery_taiwan_stock/</guid>
+      <guid>https://p0n2.github.io/post/2020_05_golang_colly_goquery_taiwan_stock/</guid>
       <description>0. Intro 1. Sample Code 2. 聊聊細節  2.1 Colly Basic &amp;amp; Queue 2.</description>
     </item>
     
     <item>
       <title>golang switch statement筆記</title>
-      <link>/post/2020_04_switch_statement_in_go/</link>
+      <link>https://p0n2.github.io/post/2020_04_switch_statement_in_go/</link>
       <pubDate>Sun, 26 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_switch_statement_in_go/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_switch_statement_in_go/</guid>
       <description>0. switch statement basic 1. multiple case expressions 2. non-constants case expressions 3.</description>
     </item>
     
     <item>
       <title>AWS lambda自動在Bucket間複製S3 Object檔案與重新命名</title>
-      <link>/post/2020_04_serverelss_aws_golang_s3/</link>
+      <link>https://p0n2.github.io/post/2020_04_serverelss_aws_golang_s3/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_serverelss_aws_golang_s3/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_serverelss_aws_golang_s3/</guid>
       <description>0. Intro 1. 安裝 2. 設定 3. 細節說明  0.</description>
     </item>
     
     <item>
       <title>AWS Lambda自動定時開關機EC2 instance</title>
-      <link>/post/2020_04_serverelss_aws_golang_ec2_operation/</link>
+      <link>https://p0n2.github.io/post/2020_04_serverelss_aws_golang_ec2_operation/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_serverelss_aws_golang_ec2_operation/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_serverelss_aws_golang_ec2_operation/</guid>
       <description>0. Intro 1. 安裝 2. 設定 3. 細節說明  0.</description>
     </item>
     
     <item>
       <title>AWS lambda常見的使用範例</title>
-      <link>/post/2020_04_most_common_case_of_lambda/</link>
+      <link>https://p0n2.github.io/post/2020_04_most_common_case_of_lambda/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_most_common_case_of_lambda/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_most_common_case_of_lambda/</guid>
       <description>0. Intro  1. Automation 2. Data Transformation 3. API Service 4.</description>
     </item>
     
     <item>
       <title>Golang - URL string Parsing 筆記</title>
-      <link>/post/2020_04_golang_url_parse_intro/</link>
+      <link>https://p0n2.github.io/post/2020_04_golang_url_parse_intro/</link>
       <pubDate>Sun, 05 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_golang_url_parse_intro/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_golang_url_parse_intro/</guid>
       <description>0. Intro 1. 範例  0. Intro 好一陣子以前在內部討論要怎麼對log裡的url再做整理時，當初有想到在透過golang的url parse先做整理過後，再塞回去json object中，雖然這個方案不是後來採用的，不過這兩天又翻到自己當初的範例，整理到blog上來。</description>
     </item>
     
     <item>
       <title>常用的Golang RegExp 範例筆記</title>
-      <link>/post/2020_04_golang_reg_exp_example/</link>
+      <link>https://p0n2.github.io/post/2020_04_golang_reg_exp_example/</link>
       <pubDate>Thu, 02 Apr 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_04_golang_reg_exp_example/</guid>
+      <guid>https://p0n2.github.io/post/2020_04_golang_reg_exp_example/</guid>
       <description>0. Intro 1. Extract text between square brackets 2. Extract text between parentheses 3.</description>
     </item>
     
     <item>
       <title>[菜單]developer開發機 ubuntu 18.04 x ASRock Deskmini B360</title>
-      <link>/post/2020_03_deskmini_ubuntu/</link>
+      <link>https://p0n2.github.io/post/2020_03_deskmini_ubuntu/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_03_deskmini_ubuntu/</guid>
+      <guid>https://p0n2.github.io/post/2020_03_deskmini_ubuntu/</guid>
       <description>0. Intro 1. 需求 2. Final Solution  0. Intro 在前一陣子手邊的Mac mini逐漸凋零之後,一直在想說要來弄一台電腦來代替它，東看西看考慮了好多</description>
     </item>
     
     <item>
       <title>AWS Backup定時備份RDS</title>
-      <link>/post/2020_03_aws_backup_rds/</link>
+      <link>https://p0n2.github.io/post/2020_03_aws_backup_rds/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_03_aws_backup_rds/</guid>
+      <guid>https://p0n2.github.io/post/2020_03_aws_backup_rds/</guid>
       <description>0. Intro 1. 認識AWS Backup 2. 透過Web console來建立AWS Backup  2.</description>
     </item>
     
     <item>
       <title>Serverless Framework for AWS Lambda Development</title>
-      <link>/post/2020_01_serverless_framework/</link>
+      <link>https://p0n2.github.io/post/2020_01_serverless_framework/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_01_serverless_framework/</guid>
+      <guid>https://p0n2.github.io/post/2020_01_serverless_framework/</guid>
       <description>0 .Intro 1. Perquisite &amp;amp; Installation 2. Create New Lambda Service 3.</description>
     </item>
     
     <item>
       <title>AWS透過Bastion Server安全的ssh連線到VPC/EC2</title>
-      <link>/post/2019_12_secure_connect_to_vpc_with_bastion/</link>
+      <link>https://p0n2.github.io/post/2019_12_secure_connect_to_vpc_with_bastion/</link>
       <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_12_secure_connect_to_vpc_with_bastion/</guid>
+      <guid>https://p0n2.github.io/post/2019_12_secure_connect_to_vpc_with_bastion/</guid>
       <description>0. Prerequisite 1. 建立SSH Tunnel 2. 設定SOCK Proxy 3. 測試連線  在AWS環境中通常會用一台Bastion Server(俗稱跳板機)來縮限從外部Internet來的存取，雖然安全，但也讓Developer常常面臨到debug的難題，例如要觀看private subnet內的web顯示，因此來筆記一下解法。</description>
     </item>
     
     <item>
       <title>利用AWS Fargate 5分鐘部署你的Gin/Flask API Cluster</title>
-      <link>/post/2019_12_5min_api_cluster_with_fargate/</link>
+      <link>https://p0n2.github.io/post/2019_12_5min_api_cluster_with_fargate/</link>
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_12_5min_api_cluster_with_fargate/</guid>
+      <guid>https://p0n2.github.io/post/2019_12_5min_api_cluster_with_fargate/</guid>
       <description>0. Prerequisite 1. 部署VPC環境 2. 部署Fargate Cluster 3. 測試你的API Cluster 4.</description>
     </item>
     
     <item>
       <title>使用AWS S3來部署Golang Hugo Blog靜態網頁</title>
-      <link>/post/2019_11_hugo_deployment/</link>
+      <link>https://p0n2.github.io/post/2019_11_hugo_deployment/</link>
       <pubDate>Thu, 21 Nov 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_11_hugo_deployment/</guid>
+      <guid>https://p0n2.github.io/post/2019_11_hugo_deployment/</guid>
       <description>0. Prerequisite 1. Create S3 Bucket and configuration 3. Summary  0.</description>
     </item>
     
     <item>
       <title>Golang使用hugo搭建你的第一個blog</title>
-      <link>/post/2019_11_engaged_with_hugo/</link>
+      <link>https://p0n2.github.io/post/2019_11_engaged_with_hugo/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_11_engaged_with_hugo/</guid>
+      <guid>https://p0n2.github.io/post/2019_11_engaged_with_hugo/</guid>
       <description>在我們開始聊Hugo之前，先看看網路上大家都怎麼利用Hugo Show Case
 0. Prerequisite 在開始使用hugo之前，必須要先在你的環境中安裝hugo的cli。
 如過你是Mac/linux user，恭喜你！你只需要在你的terminal中輸入 （linux user如果無法執行brew command的話，請先安裝Homebrew-on-linux）</description>
@@ -209,28 +209,28 @@ brew install python3 brew upgrade python@3.</description>
     
     <item>
       <title>AWS Container服務Beanstalk/ECS/Fargate/EKS介紹與比較</title>
-      <link>/post/2019_11_aws_container_intro/</link>
+      <link>https://p0n2.github.io/post/2019_11_aws_container_intro/</link>
       <pubDate>Sun, 03 Nov 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_11_aws_container_intro/</guid>
+      <guid>https://p0n2.github.io/post/2019_11_aws_container_intro/</guid>
       <description>0. Container Orchestration on AWS  1. BeansTalk 2. ECS 3.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/archives/</link>
+      <link>https://p0n2.github.io/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/archives/</guid>
+      <guid>https://p0n2.github.io/archives/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://p0n2.github.io/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://p0n2.github.io/about/</guid>
       <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.</description>
     </item>
     

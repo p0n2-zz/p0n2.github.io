@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>vscode on p0n2&#39;s Blog</title>
-    <link>/tags/vscode/</link>
+    <link>https://p0n2.github.io/tags/vscode/</link>
     <description>Recent content in vscode on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>macOS設定Python3.8-VSCode開發環境</title>
-      <link>/post/2020_08_python3_installation_all/</link>
+      <link>https://p0n2.github.io/post/2020_08_python3_installation_all/</link>
       <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_08_python3_installation_all/</guid>
+      <guid>https://p0n2.github.io/post/2020_08_python3_installation_all/</guid>
       <description>1. macOS 上安裝 Python3.8 如果你的macOS已經是最新版本的話，預設下應該已經安裝好Python3.8
 如果沒有的話，我們可以透過Brew來安裝
 brew install python3 brew upgrade python@3.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh on p0n2&#39;s Blog</title>
-    <link>/tags/ssh/</link>
+    <link>https://p0n2.github.io/tags/ssh/</link>
     <description>Recent content in ssh on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 17 Dec 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS透過Bastion Server安全的ssh連線到VPC/EC2</title>
-      <link>/post/2019_12_secure_connect_to_vpc_with_bastion/</link>
+      <link>https://p0n2.github.io/post/2019_12_secure_connect_to_vpc_with_bastion/</link>
       <pubDate>Tue, 17 Dec 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_12_secure_connect_to_vpc_with_bastion/</guid>
+      <guid>https://p0n2.github.io/post/2019_12_secure_connect_to_vpc_with_bastion/</guid>
       <description>0. Prerequisite 1. 建立SSH Tunnel 2. 設定SOCK Proxy 3. 測試連線  在AWS環境中通常會用一台Bastion Server(俗稱跳板機)來縮限從外部Internet來的存取，雖然安全，但也讓Developer常常面臨到debug的難題，例如要觀看private subnet內的web顯示，因此來筆記一下解法。</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sls on p0n2&#39;s Blog</title>
-    <link>/tags/sls/</link>
+    <link>https://p0n2.github.io/tags/sls/</link>
     <description>Recent content in sls on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/sls/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/sls/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Serverless Framework for AWS Lambda Development</title>
-      <link>/post/2020_01_serverless_framework/</link>
+      <link>https://p0n2.github.io/post/2020_01_serverless_framework/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_01_serverless_framework/</guid>
+      <guid>https://p0n2.github.io/post/2020_01_serverless_framework/</guid>
       <description>0 .Intro 1. Perquisite &amp;amp; Installation 2. Create New Lambda Service 3.</description>
     </item>
     

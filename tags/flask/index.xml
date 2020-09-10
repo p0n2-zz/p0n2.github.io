@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Flask on p0n2&#39;s Blog</title>
-    <link>/tags/flask/</link>
+    <link>https://p0n2.github.io/tags/flask/</link>
     <description>Recent content in Flask on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>利用AWS Fargate 5分鐘部署你的Gin/Flask API Cluster</title>
-      <link>/post/2019_12_5min_api_cluster_with_fargate/</link>
+      <link>https://p0n2.github.io/post/2019_12_5min_api_cluster_with_fargate/</link>
       <pubDate>Mon, 02 Dec 2019 00:00:00 +0800</pubDate>
       
-      <guid>/post/2019_12_5min_api_cluster_with_fargate/</guid>
+      <guid>https://p0n2.github.io/post/2019_12_5min_api_cluster_with_fargate/</guid>
       <description>0. Prerequisite 1. 部署VPC環境 2. 部署Fargate Cluster 3. 測試你的API Cluster 4.</description>
     </item>
     

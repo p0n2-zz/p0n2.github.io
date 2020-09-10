@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fine-grained on p0n2&#39;s Blog</title>
-    <link>/tags/fine-grained/</link>
+    <link>https://p0n2.github.io/tags/fine-grained/</link>
     <description>Recent content in Fine-grained on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/fine-grained/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/fine-grained/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS ElasticSearch/ES 筆記</title>
-      <link>/post/2020_07_aws_es_all/</link>
+      <link>https://p0n2.github.io/post/2020_07_aws_es_all/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_07_aws_es_all/</guid>
+      <guid>https://p0n2.github.io/post/2020_07_aws_es_all/</guid>
       <description>1. Launch AWS ES Domain  1.1 Domain的Deployment位置 1.2 怎麼決定ES Domain Sizing 1.</description>
     </item>
     

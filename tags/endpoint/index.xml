@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Endpoint on p0n2&#39;s Blog</title>
-    <link>/tags/endpoint/</link>
+    <link>https://p0n2.github.io/tags/endpoint/</link>
     <description>Recent content in Endpoint on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 07 Jul 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/endpoint/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/endpoint/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>AWS NatGateway Cost Optimization筆記</title>
-      <link>/post/2020_07_nat_gw_cost_optimized/</link>
+      <link>https://p0n2.github.io/post/2020_07_nat_gw_cost_optimized/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_07_nat_gw_cost_optimized/</guid>
+      <guid>https://p0n2.github.io/post/2020_07_nat_gw_cost_optimized/</guid>
       <description>很多人初學AWS應該都會認識Nat Gateway這個服務，並且部署在Public Subnet裡提供給Private Subnet中的ＶＭ對外的存取。 不過其實你的application對外有大量對於S3或是dynamoDB大量的存取，可以搭配Pricing文件然後再搭配你的Billing，就會發現這是一筆成本。尤其是早起base在ec2的老服務容易遇到這種狀況(淚)
 不過，這幾年在AWS架構上逐漸推廣VPC Endpoint的方式來提供給內部服務存取S3/DynamoDB。
 如此一來便不用特別配製Nat Gateway也可以省下一筆費用。可以參考官方的說明

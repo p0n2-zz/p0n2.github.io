@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on p0n2&#39;s Blog</title>
-    <link>/categories/</link>
+    <link>https://p0n2.github.io/categories/</link>
     <description>Recent content in Categories on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ASRock</title>
-      <link>/categories/asrock/</link>
+      <link>https://p0n2.github.io/categories/asrock/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/asrock/</guid>
+      <guid>https://p0n2.github.io/categories/asrock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>B360</title>
-      <link>/categories/b360/</link>
+      <link>https://p0n2.github.io/categories/b360/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/b360/</guid>
+      <guid>https://p0n2.github.io/categories/b360/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deskmini</title>
-      <link>/categories/deskmini/</link>
+      <link>https://p0n2.github.io/categories/deskmini/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/deskmini/</guid>
+      <guid>https://p0n2.github.io/categories/deskmini/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ubuntu</title>
-      <link>/categories/ubuntu/</link>
+      <link>https://p0n2.github.io/categories/ubuntu/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0800</pubDate>
       
-      <guid>/categories/ubuntu/</guid>
+      <guid>https://p0n2.github.io/categories/ubuntu/</guid>
       <description></description>
     </item>
     

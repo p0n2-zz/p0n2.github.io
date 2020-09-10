@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cookie on p0n2&#39;s Blog</title>
-    <link>/tags/cookie/</link>
+    <link>https://p0n2.github.io/tags/cookie/</link>
     <description>Recent content in cookie on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 03 May 2020 00:00:00 +0800</lastBuildDate>
     
-	<atom:link href="/tags/cookie/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://p0n2.github.io/tags/cookie/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>yahoo股票爬蟲 - Golang/Colly/Goquery</title>
-      <link>/post/2020_05_golang_colly_goquery_taiwan_stock/</link>
+      <link>https://p0n2.github.io/post/2020_05_golang_colly_goquery_taiwan_stock/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
       
-      <guid>/post/2020_05_golang_colly_goquery_taiwan_stock/</guid>
+      <guid>https://p0n2.github.io/post/2020_05_golang_colly_goquery_taiwan_stock/</guid>
       <description>0. Intro 1. Sample Code 2. 聊聊細節  2.1 Colly Basic &amp;amp; Queue 2.</description>
     </item>
     
