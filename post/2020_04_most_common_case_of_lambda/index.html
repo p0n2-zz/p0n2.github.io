@@ -134,7 +134,7 @@ cv_ad_options = {
 <p>對於SRE或是DevOps來說，最常用lambda來處理的事情應該就是AWS上的各種維護自動化了，例如</p>
 <ol>
 <li>利用lambda每天定時偵測沒上Tag的機器</li>
-<li><a href="https://www.p0n2.net/2020/04/aws-lambdaec2-instance.html">利用lambda每天定時開機/關機EC2</a></li>
+<li><a href="https://p0n2.github.io/post/2020_04_serverelss_aws_golang_ec2_operation/">利用lambda每天定時開機/關機EC2</a></li>
 <li>利用lambda每天定時寄信給老婆提醒會晚一點下班XD</li>
 </ol>
 <h3 id="2-data-transformation">2. Data Transformation</h3>
@@ -143,7 +143,7 @@ cv_ad_options = {
 <li>lambda+RDS/Aurora的CRUD</li>
 <li>Lambda+DynamoDB的CRUD</li>
 <li>Lambda+S3的批次處理</li>
-<li><a href="https://www.p0n2.net/2020/04/0.html">透過event來偵測S3新上傳的檔案並透過lambda來自動複製Object</a></li>
+<li><a href="https://p0n2.github.io/post/2020_04_serverelss_aws_golang_s3/">透過event來偵測S3新上傳的檔案並透過lambda來自動複製Object</a></li>
 </ol>
 <h3 id="3-api-service">3. API Service</h3>
 <p>對於Frondend Engineer來說，有了lambda後只需要透過API Gateway＋Lambda，就可以快速的deploy後端的API server，並且因為serverless的關係，也不用去處理各式各樣的operation問題，江湖上傳說前端工程師延展AWS技能數的lesson 1。</p>

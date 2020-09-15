@@ -138,7 +138,7 @@ cv_ad_options = {
 </li>
 </ul>
 <h2 id="2-high-cpu-utilization">2. High CPU Utilization</h2>
-<p>如果發現Average CPU utilization一直在85-90%甚至更高，而且沒有要下降的趨勢，一般而言都會先建議檢查shards數量是不是太多與node資源的比率，看是要重新規劃shard的大小還是要新增其他的resource，配置的話可以參考<a href="https://www.p0n2.net/2020/05/aws-elasticsearch-cluster-sizing.html">這篇</a></p>
+<p>如果發現Average CPU utilization一直在85-90%甚至更高，而且沒有要下降的趨勢，一般而言都會先建議檢查shards數量是不是太多與node資源的比率，看是要重新規劃shard的大小還是要新增其他的resource，配置的話可以參考<a href="https://p0n2.github.io/post/2020_06_aws_es_sizing_example/">AWS ELASTICSEARCH CLUSTER SIZING PRACTICE 筆記</a></p>
 <p>另外可以參考的指標還有Indexing Rate與searching Rate，如果這兩個request的數量也一直居高不下的話，可以先試著整理unused indices以及做Index Optimization，還是不行的話再來考慮scale up domain。</p>
 <h2 id="3-clusterblockexception">3. ClusterBlockException</h2>
 <p>AWS ES為了避免整個cluster處於無可挽回的地步，所以在下列情況時會先啟動Write Block來保護整個Cluster</p>

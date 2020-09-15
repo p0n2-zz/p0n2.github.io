@@ -163,7 +163,7 @@ cv_ad_options = {
 <p>資料producer數量 x 每個producer的 daily data size X 預計要在es裡保留的資料天數</p>
 <p>或是service以API Gateway + Lambda 為主的服務，也可以透過把CloudWatch Log export出來大約就可以知道每天會產生的資料量
 有了原始資料的size就可以開始計算Shard count以及所需要的ES Instance Type</p>
-<p>如果你想要了解Domain sizing的簡單計算，可以參考先前的這篇<a href="https://www.p0n2.net/2020/05/aws-elasticsearch-cluster-sizing.html">心得</a></p>
+<p>如果你想要了解Domain sizing的簡單計算，可以參考先前的這篇<a href="https://p0n2.github.io/post/2020_06_aws_es_sizing_example/">AWS ELASTICSEARCH CLUSTER SIZING PRACTICE 筆記</a></p>
 <h3 id="13-是否需要有登入機制">1.3 是否需要有登入機制</h3>
 <p>如果需要，請記得enable &ldquo;Enable Amazon Cognito authentication&rdquo;，這樣可以限制使用者必須要先登入才能存取ES，同時也可以限制不同的IAM role可以存取的index resource。請參考<a href="https://docs.aws.amazon.com/zh_tw/elasticsearch-service/latest/developerguide/es-cognito-auth.html#es-cognito-auth-granular">這裏</a></p>
 <h3 id="14-是否需要有multi-level的權限">1.4 是否需要有multi-level的權限</h3>
@@ -208,8 +208,8 @@ cv_ad_options = {
 <p>可以參考<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample">連結</a></p>
 <h2 id="3-aws-es-domain常見問題">3. AWS ES Domain常見問題</h2>
 <p>最後，有一些常見的AWS ES問題note</p>
-<p><a href="https://www.p0n2.net/2020/08/aws-elasticsearch-cluster-status.html">AWS ElasticSearch Cluster status red/yellow</a>
-<a href="https://www.p0n2.net/2020/06/aws-elasticsearch.html">AWS ElasticSearch 常見錯誤處理</a></p>
+<p><a href="https://p0n2.github.io/post/2020_06_aws_es_cluster_status/">AWS ElasticSearch Cluster status red/yellow</a>
+<a href="https://p0n2.github.io/post/2020_06_aws_es_exceptions/">AWS ElasticSearch 常見錯誤處理</a></p>
 
 
     <script type="text/javascript">
