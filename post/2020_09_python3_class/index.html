@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | Understanding Class and Instance Variables in Python 3 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="https://p0n2.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://p0n2.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://p0n2.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://p0n2.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://p0n2.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://p0n2.github.io/post/2020_09_python3_class/">
+    
+    
+    <script type="text/javascript" src="https://p0n2.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Understanding Class and Instance Variables in Python 3"/>
+<meta name="twitter:description" content="Introduction Object-oriented programming allows for variables to be used at the class level or the instance level."/>
+
+    <meta name="google-site-verification" content="va3_kX9vMLTtETgnhVyRYfbbWcHz6KbKgT6oKjmv1yQ" />
+    <script data-ad-client="ca-pub-8902147725479326" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://p0n2.github.io/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>Understanding Class and Instance Variables in Python 3
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Thu, Aug 27, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>Introduction
+Object-oriented programming allows for variables to be used at the class level or the instance level. Variables are essentially symbols that stand in for a value you’re using in a program.</p>
+<p>At the class level, variables are referred to as class variables, whereas variables at the instance level are called instance variables.</p>
+<p>When we expect variables are going to be consistent across instances, or when we would like to initialize a variable, we can define that variable at the class level. When we anticipate the variables will change significantly across instances, we can define them at the instance level.</p>
+<p>One of the principles of software development is the DRY principle, which stands for don’t repeat yourself. This principle is geared towards limiting repetition within code, and object-oriented programming adheres to the DRY principle as it reduces redundancy.</p>
+<p>This tutorial will demonstrate the use of both class and instance variables in object-oriented programming within Python.</p>
+<p>Class Variables
+Class variables are defined within the class construction. Because they are owned by the class itself, class variables are shared by all instances of the class. They therefore will generally have the same value for every instance unless you are using the class variable to initialize a variable.</p>
+<p>Defined outside of all the methods, class variables are, by convention, typically placed right below the class header and before the constructor method and other methods.</p>
+<p>A class variable alone looks like this:</p>
+<p>class Shark:
+animal_type = &ldquo;fish&rdquo;
+Here, the variable animal_type is assigned the value &ldquo;fish&rdquo;.</p>
+<p>We can create an instance of the Shark class (we’ll call it new_shark) and print the variable by using dot notation:</p>
+<p>shark.py
+class Shark:
+animal_type = &ldquo;fish&rdquo;</p>
+<p>new_shark = Shark()
+print(new_shark.animal_type)
+Let’s run the program:</p>
+<p>python shark.py
+Output
+fish
+Our program returns the value of the variable.</p>
+<p>Let’s add a few more class variables and print them out:</p>
+<p>shark.py
+class Shark:
+animal_type = &ldquo;fish&rdquo;
+location = &ldquo;ocean&rdquo;
+followers = 5</p>
+<p>new_shark = Shark()
+print(new_shark.animal_type)
+print(new_shark.location)
+print(new_shark.followers)
+Just like with any other variable, class variables can consist of any data type available to us in Python. In this program we have strings and an integer. Let’s run the program again with the python shark.py command and see the output:</p>
+<p>Output
+fish
+ocean
+5
+The instance of new_shark is able to access all the class variables and print them out when we run the program.</p>
+<p>Class variables allow us to define variables upon constructing the class. These variables and their associated values are then accessible to each instance of the class.</p>
+<p>Instance Variables
+Instance variables are owned by instances of the class. This means that for each object or instance of a class, the instance variables are different.</p>
+<p>Unlike class variables, instance variables are defined within methods.</p>
+<p>In the Shark class example below, name and age are instance variables:</p>
+<p>class Shark:
+def <strong>init</strong>(self, name, age):
+self.name = name
+self.age = age
+When we create a Shark object, we will have to define these variables, which are passed as parameters within the constructor method or another method.</p>
+<p>class Shark:
+def <strong>init</strong>(self, name, age):
+self.name = name
+self.age = age</p>
+<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
+As with class variables, we can similarly call to print instance variables:</p>
+<p>shark.py
+class Shark:
+def <strong>init</strong>(self, name, age):
+self.name = name
+self.age = age</p>
+<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
+print(new_shark.name)
+print(new_shark.age)
+When we run the program above with python shark.py, we’ll receive the following output:</p>
+<p>Output
+Sammy
+5
+The output we receive is made up of the values of the variables that we initialized for the object instance of new_shark.</p>
+<p>Let’s create another object of the Shark class called stevie:</p>
+<p>shark.py
+class Shark:
+def <strong>init</strong>(self, name, age):
+self.name = name
+self.age = age</p>
+<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
+print(new_shark.name)
+print(new_shark.age)</p>
+<p>stevie = Shark(&ldquo;Stevie&rdquo;, 8)
+print(stevie.name)
+print(stevie.age)
+The stevie object, like the new_shark object passes the parameters specific for that instance of the Shark class to assign values to the instance variables.</p>
+<p>Instance variables, owned by objects of the class, allow for each object or instance to have different values assigned to those variables.</p>
+<p>Working with Class and Instance Variables Together
+Class variables and instance variables will often be utilized at the same time, so let’s look at an example of this using the Shark class we created. The comments in the program outline each step of the process.</p>
+<p>shark.py
+class Shark:</p>
+<pre><code># Class variables
+animal_type = &quot;fish&quot;
+location = &quot;ocean&quot;
+
+# Constructor method with instance variables name and age
+def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+# Method with instance variable followers
+def set_followers(self, followers):
+    print(&quot;This user has &quot; + str(followers) + &quot; followers&quot;)
+</code></pre>
+<p>def main():
+# First object, set up instance variables of constructor method
+sammy = Shark(&ldquo;Sammy&rdquo;, 5)</p>
+<pre><code># Print out instance variable name
+print(sammy.name)
+
+# Print out class variable location
+print(sammy.location)
+
+# Second object
+stevie = Shark(&quot;Stevie&quot;, 8)
+
+# Print out instance variable name
+print(stevie.name)
+
+# Use set_followers method and pass followers instance variable
+stevie.set_followers(77)
+
+# Print out class variable animal_type
+print(stevie.animal_type)
+</code></pre>
+<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&quot;:
+main()
+When we run the program with python shark.py, we’ll receive the following output:</p>
+<p>Output
+Sammy
+ocean
+Stevie
+This user has 77 followers
+fish
+Here, we have made use of both class and instance variables in two objects of the Shark class, sammy and stevie.</p>
+<p>Conclusion
+In object-oriented programming, variables at the class level are referred to as class variables, whereas variables at the object level are called instance variables.</p>
+<p>This differentiation allows us to use class variables to initialize objects with a specific value assigned to variables, and use different variables for each object with instance variables.</p>
+<p>Making use of class- and instance-specific variables can ensure that our code adheres to the DRY principle to reduce repetition within code.</p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/python3/">python3</a><a class="tag" href="/tags/vscode/">vscode</a><a class="tag" href="/tags/extension/">extension</a><a class="tag" href="/tags/django/">django</a><a class="tag" href="/tags/robot-framework/">robot framework</a><a class="tag" href="/tags/pip/">pip</a><a class="tag" href="/tags/brew/">brew</a><a class="tag" href="/tags/intellicode/">IntelliCode</a><a class="tag" href="/tags/docstring/">Docstring</a></span>
+
+      </div>
+
+
+<h3>See Also</h3>
+<ul>
+	
+	<li><a href="/post/2020_09_python3_module/">How To Import Modules in Python 3</a></li>
+	
+	<li><a href="/post/2020_09_python3_class_inheritance/">Understanding Class Inheritance in Python 3</a></li>
+	
+	<li><a href="/post/2020_08_python3_installation_all/">macOS設定Python3.8-VSCode開發環境</a></li>
+	
+	<li><a href="/post/2020_07_nat_gw_cost_optimized/">AWS NatGateway Cost Optimization筆記</a></li>
+	
+	<li><a href="/post/2020_07_aws_es_all/">AWS ElasticSearch/ES 筆記</a></li>
+	
+</ul>
+</div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://p0n2.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://p0n2.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://p0n2.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

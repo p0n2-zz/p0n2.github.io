@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme=""><head>
+    <title> p0n2 | Understanding Class Inheritance in Python 3 </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Not only a software engineer.">
+    
+    <link rel="stylesheet" href="https://p0n2.github.io/css/style.min.5be3a155aa89a24586c761b1b5538c4040e3735ee32ac12a708dc1696c0982f5.css" integrity="sha256-W&#43;OhVaqJokWGx2GxtVOMQEDjc17jKsEqcI3BaWwJgvU=" crossorigin="anonymous" type="text/css"><link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://p0n2.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://p0n2.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://p0n2.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://p0n2.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://p0n2.github.io/post/2020_09_python3_class_inheritance/">
+    
+    
+    <script type="text/javascript" src="https://p0n2.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Understanding Class Inheritance in Python 3"/>
+<meta name="twitter:description" content="Introduction Object-oriented programming creates reusable patterns of code to curtail redundancy in development projects."/>
+
+    <meta name="google-site-verification" content="va3_kX9vMLTtETgnhVyRYfbbWcHz6KbKgT6oKjmv1yQ" />
+    <script data-ad-client="ca-pub-8902147725479326" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://p0n2.github.io/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">I&#39;m p0n2</a></h3>
+        <div class="description">
+          <p>Not only a software engineer.</p>
+          <script type="text/javascript">
+            cv_ad_options = {
+              ad_slot_id: "0a617cfbf942598a10016e007cfaa00c",
+              ad_width: "364",
+              ad_height: "90",
+              mode: "production"
+            };
+            </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://github.com/p0n2" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="mailto:err.p0n2@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; p0n2 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        
+        <li><a  href="/"  title="">Home</a></li>
+        
+        
+        <li><a  href="/post/"  title="">Posts</a></li>
+        
+        
+        <li><a  href=""  title=""></a></li>
+        
+        
+        <li class="theme-switch-item">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+<script type="text/javascript">
+cv_ad_options = {
+  ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+  ad_width: "750",
+  ad_height: "300",
+  mode: "production"
+};
+</script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+<script type="text/javascript">
+  cv_ad_options = {
+    ad_slot_id: "f829b4f4e80d3e273f3d3a6a9b9872c7",
+    ad_width: "750",
+    ad_height: "300",
+    mode: "production"
+  };
+  </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <div class="post-title">
+        <h3>Understanding Class Inheritance in Python 3
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i>
+          <span class="date">Thu, Aug 27, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time"></span>
+        </div>
+        
+        </div>
+
+    <p>Introduction
+Object-oriented programming creates reusable patterns of code to curtail redundancy in development projects. One way that object-oriented programming achieves recyclable code is through inheritance, when one subclass can leverage code from another base class.</p>
+<p>This tutorial will go through some of the major aspects of inheritance in Python, including how parent classes and child classes work, how to override methods and attributes, how to use the super() function, and how to make use of multiple inheritance.</p>
+<p>What Is Inheritance?
+Inheritance is when a class uses code constructed within another class. If we think of inheritance in terms of biology, we can think of a child inheriting certain traits from their parent. That is, a child can inherit a parent’s height or eye color. Children also may share the same last name with their parents.</p>
+<p>Classes called child classes or subclasses inherit methods and variables from parent classes or base classes.</p>
+<p>We can think of a parent class called Parent that has class variables for last_name, height, and eye_color that the child class Child will inherit from the Parent.</p>
+<p>Because the Child subclass is inheriting from the Parent base class, the Child class can reuse the code of Parent, allowing the programmer to use fewer lines of code and decrease redundancy.</p>
+<p>Parent Classes
+Parent or base classes create a pattern out of which child or subclasses can be based on. Parent classes allow us to create child classes through inheritance without having to write the same code over again each time. Any class can be made into a parent class, so they are each fully functional classes in their own right, rather than just templates.</p>
+<p>Let’s say we have a general Bank_account parent class that has Personal_account and Business_account child classes. Many of the methods between personal and business accounts will be similar, such as methods to withdraw and deposit money, so those can belong to the parent class of Bank_account. The Business_account subclass would have methods specific to it, including perhaps a way to collect business records and forms, as well as an employee_identification_number variable.</p>
+<p>Similarly, an Animal class may have eating() and sleeping() methods, and a Snake subclass may include its own specific hissing() and slithering() methods.</p>
+<p>Let’s create a Fish parent class that we will later use to construct types of fish as its subclasses. Each of these fish will have first names and last names in addition to characteristics.</p>
+<p>We’ll create a new file called fish.py and start with the <strong>init</strong>() constructor method, which we’ll populate with first_name and last_name class variables for each Fish object or subclass.</p>
+<p>fish.py
+class Fish:
+def <strong>init</strong>(self, first_name, last_name=&quot;Fish&rdquo;):
+self.first_name = first_name
+self.last_name = last_name
+We have initialized our last_name variable with the string &ldquo;Fish&rdquo; because we know that most fish will have this as their last name.</p>
+<p>Let’s also add some other methods:</p>
+<p>fish.py
+class Fish:
+def <strong>init</strong>(self, first_name, last_name=&quot;Fish&rdquo;):
+self.first_name = first_name
+self.last_name = last_name</p>
+<pre><code>def swim(self):
+    print(&quot;The fish is swimming.&quot;)
+
+def swim_backwards(self):
+    print(&quot;The fish can swim backwards.&quot;)
+</code></pre>
+<p>We have added the methods swim() and swim_backwards() to the Fish class, so that every subclass will also be able to make use of these methods.</p>
+<p>Since most of the fish we’ll be creating are considered to be bony fish (as in they have a skeleton made out of bone) rather than cartilaginous fish (as in they have a skeleton made out of cartilage), we can add a few more attributes to the <strong>init</strong>() method:</p>
+<p>fish.py
+class Fish:
+def <strong>init</strong>(self, first_name, last_name=&quot;Fish&rdquo;,
+skeleton=&quot;bone&rdquo;, eyelids=False):
+self.first_name = first_name
+self.last_name = last_name
+self.skeleton = skeleton
+self.eyelids = eyelids</p>
+<pre><code>def swim(self):
+    print(&quot;The fish is swimming.&quot;)
+
+def swim_backwards(self):
+    print(&quot;The fish can swim backwards.&quot;)
+</code></pre>
+<p>Building a parent class follows the same methodology as building any other class, except we are thinking about what methods the child classes will be able to make use of once we create those.</p>
+<p>Child Classes
+Child or subclasses are classes that will inherit from the parent class. That means that each child class will be able to make use of the methods and variables of the parent class.</p>
+<p>For example, a Goldfish child class that subclasses the Fish class will be able to make use of the swim() method declared in Fish without needing to declare it.</p>
+<p>We can think of each child class as being a class of the parent class. That is, if we have a child class called Rhombus and a parent class called Parallelogram, we can say that a Rhombus is a Parallelogram, just as a Goldfish is a Fish.</p>
+<p>The first line of a child class looks a little different than non-child classes as you must pass the parent class into the child class as a parameter:</p>
+<p>class Trout(Fish):
+The Trout class is a child of the Fish class. We know this because of the inclusion of the word Fish in parentheses.</p>
+<p>With child classes, we can choose to add more methods, override existing parent methods, or simply accept the default parent methods with the pass keyword, which we’ll do in this case:</p>
+<p>fish.py
+&hellip;
+class Trout(Fish):
+pass
+We can now create a Trout object without having to define any additional methods.</p>
+<p>fish.py
+&hellip;
+class Trout(Fish):
+pass</p>
+<p>terry = Trout(&ldquo;Terry&rdquo;)
+print(terry.first_name + &quot; &quot; + terry.last_name)
+print(terry.skeleton)
+print(terry.eyelids)
+terry.swim()
+terry.swim_backwards()
+We have created a Trout object terry that makes use of each of the methods of the Fish class even though we did not define those methods in the Trout child class. We only needed to pass the value of &ldquo;Terry&rdquo; to the first_name variable because all of the other variables were initialized.</p>
+<p>When we run the program, we’ll receive the following output:</p>
+<p>Output
+Terry Fish
+bone
+False
+The fish is swimming.
+The fish can swim backwards.
+Next, let’s create another child class that includes its own method. We’ll call this class Clownfish, and its special method will permit it to live with sea anemone:</p>
+<p>fish.py
+&hellip;
+class Clownfish(Fish):</p>
+<pre><code>def live_with_anemone(self):
+    print(&quot;The clownfish is coexisting with sea anemone.&quot;)
+</code></pre>
+<p>Next, let’s create a Clownfish object to see how this works:</p>
+<p>fish.py
+&hellip;
+casey = Clownfish(&ldquo;Casey&rdquo;)
+print(casey.first_name + &quot; &quot; + casey.last_name)
+casey.swim()
+casey.live_with_anemone()
+When we run the program, we’ll receive the following output:</p>
+<p>Output
+Casey Fish
+The fish is swimming.
+The clownfish is coexisting with sea anemone.
+The output shows that the Clownfish object casey is able to use the Fish methods <strong>init</strong>() and swim() as well as its child class method of live_with_anemone().</p>
+<p>If we try to use the live_with_anemone() method in a Trout object, we’ll receive an error:</p>
+<p>Output
+terry.live_with_anemone()
+AttributeError: &lsquo;Trout&rsquo; object has no attribute &lsquo;live_with_anemone&rsquo;
+This is because the method live_with_anemone() belongs only to the Clownfish child class, and not the Fish parent class.</p>
+<p>Child classes inherit the methods of the parent class it belongs to, so each child class can make use of those methods within programs.</p>
+<p>Overriding Parent Methods
+So far, we have looked at the child class Trout that made use of the pass keyword to inherit all of the parent class Fish behaviors, and another child class Clownfish that inherited all of the parent class behaviors and also created its own unique method that is specific to the child class. Sometimes, however, we will want to make use of some of the parent class behaviors but not all of them. When we change parent class methods we override them.</p>
+<p>When constructing parent and child classes, it is important to keep program design in mind so that overriding does not produce unnecessary or redundant code.</p>
+<p>We’ll create a Shark child class of the Fish parent class. Because we created the Fish class with the idea that we would be creating primarily bony fish, we’ll have to make adjustments for the Shark class that is instead a cartilaginous fish. In terms of program design, if we had more than one non-bony fish, we would most likely want to make separate classes for each of these two types of fish.</p>
+<p>Sharks, unlike bony fish, have skeletons made of cartilage instead of bone. They also have eyelids and are unable to swim backwards. Sharks can, however, maneuver themselves backwards by sinking.</p>
+<p>In light of this, we’ll be overriding the <strong>init</strong>() constructor method and the swim_backwards() method. We don’t need to modify the swim() method since sharks are fish that can swim. Let’s take a look at this child class:</p>
+<p>fish.py
+&hellip;
+class Shark(Fish):
+def <strong>init</strong>(self, first_name, last_name=&quot;Shark&rdquo;,
+skeleton=&quot;cartilage&rdquo;, eyelids=True):
+self.first_name = first_name
+self.last_name = last_name
+self.skeleton = skeleton
+self.eyelids = eyelids</p>
+<pre><code>def swim_backwards(self):
+    print(&quot;The shark cannot swim backwards, but can sink backwards.&quot;)
+</code></pre>
+<p>We have overridden the initialized parameters in the <strong>init</strong>() method, so that the last_name variable is now set equal to the string &ldquo;Shark&rdquo;, the skeleton variable is now set equal to the string &ldquo;cartilage&rdquo;, and the eyelids variable is now set to the Boolean value True. Each instance of the class can also override these parameters.</p>
+<p>The method swim_backwards() now prints a different string than the one in the Fish parent class because sharks are not able to swim backwards in the way that bony fish can.</p>
+<p>We can now create an instance of the Shark child class, which will still make use of the swim() method of the Fish parent class:</p>
+<p>fish.py
+&hellip;
+sammy = Shark(&ldquo;Sammy&rdquo;)
+print(sammy.first_name + &quot; &quot; + sammy.last_name)
+sammy.swim()
+sammy.swim_backwards()
+print(sammy.eyelids)
+print(sammy.skeleton)
+When we run this code, we’ll receive the following output:</p>
+<p>Output
+Sammy Shark
+The fish is swimming.
+The shark cannot swim backwards, but can sink backwards.
+True
+cartilage
+The Shark child class successfully overrode the <strong>init</strong>() and swim_backwards() methods of the Fish parent class, while also inheriting the swim() method of the parent class.</p>
+<p>When there will be a limited number of child classes that are more unique than others, overriding parent class methods can prove to be useful.</p>
+<p>The super() Function
+With the super() function, you can gain access to inherited methods that have been overwritten in a class object.</p>
+<p>When we use the super() function, we are calling a parent method into a child method to make use of it. For example, we may want to override one aspect of the parent method with certain functionality, but then call the rest of the original parent method to finish the method.</p>
+<p>In a program that grades students, we may want to have a child class for Weighted_grade that inherits from the Grade parent class. In the child class Weighted_grade, we may want to override a calculate_grade() method of the parent class in order to include functionality to calculate a weighted grade, but still keep the rest of the functionality of the original class. By invoking the super() function we would be able to achieve this.</p>
+<p>The super() function is most commonly used within the <strong>init</strong>() method because that is where you will most likely need to add some uniqueness to the child class and then complete initialization from the parent.</p>
+<p>To see how this works, let’s modify our Trout child class. Since trout are typically freshwater fish, let’s add a water variable to the <strong>init</strong>() method and set it equal to the string &ldquo;freshwater&rdquo;, but then maintain the rest of the parent class’s variables and parameters:</p>
+<p>fish.py
+&hellip;
+class Trout(Fish):
+def <strong>init</strong>(self, water = &ldquo;freshwater&rdquo;):
+self.water = water
+super().<strong>init</strong>(self)
+&hellip;
+We have overridden the <strong>init</strong>() method in the Trout child class, providing a different implementation of the <strong>init</strong>() that is already defined by its parent class Fish. Within the <strong>init</strong>() method of our Trout class we have explicitly invoked the <strong>init</strong>() method of the Fish class.</p>
+<p>Because we have overridden the method, we no longer need to pass first_name in as a parameter to Trout, and if we did pass in a parameter, we would reset freshwater instead. We will therefore initialize the first_name by calling the variable in our object instance.</p>
+<p>Now we can invoke the initialized variables of the parent class and also make use of the unique child variable. Let’s use this in an instance of Trout:</p>
+<p>fish.py
+&hellip;
+terry = Trout()</p>
+<h1 id="initialize-first-name">Initialize first name</h1>
+<p>terry.first_name = &ldquo;Terry&rdquo;</p>
+<h1 id="use-parent-__init__-through-super">Use parent <strong>init</strong>() through super()</h1>
+<p>print(terry.first_name + &quot; &quot; + terry.last_name)
+print(terry.eyelids)</p>
+<h1 id="use-child-__init__-override">Use child <strong>init</strong>() override</h1>
+<p>print(terry.water)</p>
+<h1 id="use-parent-swim-method">Use parent swim() method</h1>
+<p>terry.swim()
+Output
+Terry Fish
+False
+freshwater
+The fish is swimming.
+The output shows that the object terry of the Trout child class is able to make use of both the child-specific <strong>init</strong>() variable water while also being able to call the Fish parent <strong>init</strong>() variables of first_name, last_name, and eyelids.</p>
+<p>The built-in Python function super() allows us to utilize parent class methods even when overriding certain aspects of those methods in our child classes.</p>
+<p>Multiple Inheritance
+Multiple inheritance is when a class can inherit attributes and methods from more than one parent class. This can allow programs to reduce redundancy, but it can also introduce a certain amount of complexity as well as ambiguity, so it should be done with thought to overall program design.</p>
+<p>To show how multiple inheritance works, let’s create a Coral_reef child class than inherits from a Coral class and a Sea_anemone class. We can create a method in each and then use the pass keyword in the Coral_reef child class:</p>
+<p>coral_reef.py
+class Coral:</p>
+<pre><code>def community(self):
+    print(&quot;Coral lives in a community.&quot;)
+</code></pre>
+<p>class Anemone:</p>
+<pre><code>def protect_clownfish(self):
+    print(&quot;The anemone is protecting the clownfish.&quot;)
+</code></pre>
+<p>class CoralReef(Coral, Anemone):
+pass
+The Coral class has a method called community() that prints one line, and the Anemone class has a method called protect_clownfish() that prints another line. Then we call both classes into the inheritance tuple. This means that CoralReef is inheriting from two parent classes.</p>
+<p>Let’s now instantiate a CoralReef object:</p>
+<p>coral_reef.py
+&hellip;
+great_barrier = CoralReef()
+great_barrier.community()
+great_barrier.protect_clownfish()
+The object great_barrier is set as a CoralReef object, and can use the methods in both parent classes. When we run the program, we’ll see the following output:</p>
+<p>Output
+Coral lives in a community.
+The anemone is protecting the clownfish.
+The output shows that methods from both parent classes were effectively used in the child class.</p>
+<p>Multiple inheritance allows us to use the code from more than one parent class in a child class. If the same method is defined in multiple parent methods, the child class will use the method of the first parent declared in its tuple list.</p>
+<p>Though it can be used effectively, multiple inheritance should be done with care so that our programs do not become ambiguous and difficult for other programmers to understand.</p>
+<p>Conclusion
+This tutorial went through constructing parent classes and child classes, overriding parent methods and attributes within child classes, using the super() function, and allowing for child classes to inherit from multiple parent classes.</p>
+<p>Inheritance in object-oriented coding can allow for adherence to the DRY (don’t repeat yourself) principle of software development, allowing for more to be done with less code and repetition. Inheritance also compels programmers to think about how they are designing the programs they are creating to ensure that code is effective and clear.</p>
+
+
+    <script type="text/javascript">
+      cv_ad_options = {
+        ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+        ad_width: "750",
+        ad_height: "300",
+        mode: "production"
+      };
+      </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+      <script type="text/javascript">
+        cv_ad_options = {
+          ad_slot_id: "34fd96319400ec71454c4212e4e5df0a",
+          ad_width: "750",
+          ad_height: "300",
+          mode: "production"
+        };
+        </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+    <span class="separator"><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/python3/">python3</a><a class="tag" href="/tags/vscode/">vscode</a><a class="tag" href="/tags/extension/">extension</a><a class="tag" href="/tags/django/">django</a><a class="tag" href="/tags/robot-framework/">robot framework</a><a class="tag" href="/tags/pip/">pip</a><a class="tag" href="/tags/brew/">brew</a><a class="tag" href="/tags/intellicode/">IntelliCode</a><a class="tag" href="/tags/docstring/">Docstring</a></span>
+
+      </div>
+
+
+<h3>See Also</h3>
+<ul>
+	
+	<li><a href="/post/2020_09_python3_module/">How To Import Modules in Python 3</a></li>
+	
+	<li><a href="/post/2020_09_python3_class/">Understanding Class and Instance Variables in Python 3</a></li>
+	
+	<li><a href="/post/2020_08_python3_installation_all/">macOS設定Python3.8-VSCode開發環境</a></li>
+	
+	<li><a href="/post/2020_07_nat_gw_cost_optimized/">AWS NatGateway Cost Optimization筆記</a></li>
+	
+	<li><a href="/post/2020_07_aws_es_all/">AWS ElasticSearch/ES 筆記</a></li>
+	
+</ul>
+</div>
+
+    
+    <div id="fb_comments_container">
+      <h2></h2>
+      <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "p0n2-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>     
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://p0n2.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://p0n2.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://p0n2.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-22416192-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>
