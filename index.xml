@@ -12,15 +12,6 @@
     
     
     <item>
-      <title>How To Import Modules in Python 3</title>
-      <link>https://p0n2.github.io/post/2020_09_python3_module/</link>
-      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/post/2020_09_python3_module/</guid>
-      <description>Introduction The Python programming language comes with a variety of built-in functions.</description>
-    </item>
-    
-    <item>
       <title>macOS設定Python3.8-VSCode開發環境</title>
       <link>https://p0n2.github.io/post/2020_08_python3_installation_all/</link>
       <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
@@ -29,24 +20,6 @@
       <description>1. macOS 上安裝 Python3.8 如果你的macOS已經是最新版本的話，預設下應該已經安裝好Python3.8
 如果沒有的話，我們可以透過Brew來安裝
 brew install python3 brew upgrade python@3.</description>
-    </item>
-    
-    <item>
-      <title>Understanding Class and Instance Variables in Python 3</title>
-      <link>https://p0n2.github.io/post/2020_09_python3_class/</link>
-      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/post/2020_09_python3_class/</guid>
-      <description>Introduction Object-oriented programming allows for variables to be used at the class level or the instance level.</description>
-    </item>
-    
-    <item>
-      <title>Understanding Class Inheritance in Python 3</title>
-      <link>https://p0n2.github.io/post/2020_09_python3_class_inheritance/</link>
-      <pubDate>Thu, 27 Aug 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/post/2020_09_python3_class_inheritance/</guid>
-      <description>Introduction Object-oriented programming creates reusable patterns of code to curtail redundancy in development projects.</description>
     </item>
     
     <item>
