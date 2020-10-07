@@ -4,7 +4,72 @@
   
   <url>
     <loc>https://p0n2.github.io/</loc>
-    <lastmod>2020-08-27T00:00:00+08:00</lastmod>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/amazon/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/aws/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/awscli/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/cli/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/cobra/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/command-line/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/ec2/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/go/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/golang/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/post/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/s3/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/tags/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://p0n2.github.io/post/2020_09_python3_class/</loc>
+    <lastmod>2020-10-03T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -43,11 +108,6 @@
   </url>
   
   <url>
-    <loc>https://p0n2.github.io/post/</loc>
-    <lastmod>2020-08-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://p0n2.github.io/tags/python/</loc>
     <lastmod>2020-08-27T00:00:00+08:00</lastmod>
   </url>
@@ -63,23 +123,8 @@
   </url>
   
   <url>
-    <loc>https://p0n2.github.io/tags/</loc>
-    <lastmod>2020-08-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://p0n2.github.io/tags/vscode/</loc>
     <lastmod>2020-08-27T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://p0n2.github.io/tags/amazon/</loc>
-    <lastmod>2020-07-07T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://p0n2.github.io/tags/aws/</loc>
-    <lastmod>2020-07-07T00:00:00+08:00</lastmod>
   </url>
   
   <url>
@@ -114,11 +159,6 @@
   
   <url>
     <loc>https://p0n2.github.io/tags/natgateway/</loc>
-    <lastmod>2020-07-07T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://p0n2.github.io/tags/s3/</loc>
     <lastmod>2020-07-07T00:00:00+08:00</lastmod>
   </url>
   
@@ -164,11 +204,6 @@
   
   <url>
     <loc>https://p0n2.github.io/tags/cognito/</loc>
-    <lastmod>2020-06-30T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://p0n2.github.io/tags/ec2/</loc>
     <lastmod>2020-06-30T00:00:00+08:00</lastmod>
   </url>
   
@@ -344,11 +379,6 @@
   
   <url>
     <loc>https://p0n2.github.io/tags/dom/</loc>
-    <lastmod>2020-05-03T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://p0n2.github.io/tags/golang/</loc>
     <lastmod>2020-05-03T00:00:00+08:00</lastmod>
   </url>
   

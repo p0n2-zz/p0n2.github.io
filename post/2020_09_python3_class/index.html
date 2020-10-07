@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh" data-theme=""><head>
-    <title> p0n2 | Understanding Class and Instance Variables in Python 3 </title>
+    <title> p0n2 | Using Cobra and Go to Create AWS-like Command Line </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="Not only a software engineer.">
     
@@ -15,8 +15,9 @@
     
     <script type="text/javascript" src="https://p0n2.github.io/js/anatole-header.min.7e2fc0724240b28c6e214687e73a4a6eb6c196bbace546b9dc86e94cca120b5c.js" integrity="sha256-fi/AckJAsoxuIUaH5zpKbrbBlrus5Ua53IbpTMoSC1w=" crossorigin="anonymous"></script>
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Understanding Class and Instance Variables in Python 3"/>
-<meta name="twitter:description" content="Introduction Object-oriented programming allows for variables to be used at the class level or the instance level."/>
+<meta name="twitter:title" content="Using Cobra and Go to Create AWS-like Command Line"/>
+<meta name="twitter:description" content="0. Perquisites 除了基本的golang(version &gt;= 1.12)環境以外，還需要安裝Cobra Go Package
+go get github.com/spf13/cobra/cobra 安裝完後，可以透過cobra確認安裝的結果"/>
 
     <meta name="google-site-verification" content="va3_kX9vMLTtETgnhVyRYfbbWcHz6KbKgT6oKjmv1yQ" />
     <script data-ad-client="ca-pub-8902147725479326" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -108,152 +109,190 @@ cv_ad_options = {
   };
   </script><script text="text/javascript" src="//cdn.vbtrax.com/adslots/va.ads.js"></script>
       <div class="post-title">
-        <h3>Understanding Class and Instance Variables in Python 3
+        <h3>Using Cobra and Go to Create AWS-like Command Line
         </h3>
         
         <div class="info">
           <i class="fa fa-sun-o"></i>
-          <span class="date">Thu, Aug 27, 2020</span>
+          <span class="date">Sat, Oct 3, 2020</span>
           <i class="fa fa-clock-o"></i><span class="reading-time"></span>
         </div>
         
         </div>
 
-    <p>Introduction
-Object-oriented programming allows for variables to be used at the class level or the instance level. Variables are essentially symbols that stand in for a value you’re using in a program.</p>
-<p>At the class level, variables are referred to as class variables, whereas variables at the instance level are called instance variables.</p>
-<p>When we expect variables are going to be consistent across instances, or when we would like to initialize a variable, we can define that variable at the class level. When we anticipate the variables will change significantly across instances, we can define them at the instance level.</p>
-<p>One of the principles of software development is the DRY principle, which stands for don’t repeat yourself. This principle is geared towards limiting repetition within code, and object-oriented programming adheres to the DRY principle as it reduces redundancy.</p>
-<p>This tutorial will demonstrate the use of both class and instance variables in object-oriented programming within Python.</p>
-<p>Class Variables
-Class variables are defined within the class construction. Because they are owned by the class itself, class variables are shared by all instances of the class. They therefore will generally have the same value for every instance unless you are using the class variable to initialize a variable.</p>
-<p>Defined outside of all the methods, class variables are, by convention, typically placed right below the class header and before the constructor method and other methods.</p>
-<p>A class variable alone looks like this:</p>
-<p>class Shark:
-animal_type = &ldquo;fish&rdquo;
-Here, the variable animal_type is assigned the value &ldquo;fish&rdquo;.</p>
-<p>We can create an instance of the Shark class (we’ll call it new_shark) and print the variable by using dot notation:</p>
-<p>shark.py
-class Shark:
-animal_type = &ldquo;fish&rdquo;</p>
-<p>new_shark = Shark()
-print(new_shark.animal_type)
-Let’s run the program:</p>
-<p>python shark.py
-Output
-fish
-Our program returns the value of the variable.</p>
-<p>Let’s add a few more class variables and print them out:</p>
-<p>shark.py
-class Shark:
-animal_type = &ldquo;fish&rdquo;
-location = &ldquo;ocean&rdquo;
-followers = 5</p>
-<p>new_shark = Shark()
-print(new_shark.animal_type)
-print(new_shark.location)
-print(new_shark.followers)
-Just like with any other variable, class variables can consist of any data type available to us in Python. In this program we have strings and an integer. Let’s run the program again with the python shark.py command and see the output:</p>
-<p>Output
-fish
-ocean
-5
-The instance of new_shark is able to access all the class variables and print them out when we run the program.</p>
-<p>Class variables allow us to define variables upon constructing the class. These variables and their associated values are then accessible to each instance of the class.</p>
-<p>Instance Variables
-Instance variables are owned by instances of the class. This means that for each object or instance of a class, the instance variables are different.</p>
-<p>Unlike class variables, instance variables are defined within methods.</p>
-<p>In the Shark class example below, name and age are instance variables:</p>
-<p>class Shark:
-def <strong>init</strong>(self, name, age):
-self.name = name
-self.age = age
-When we create a Shark object, we will have to define these variables, which are passed as parameters within the constructor method or another method.</p>
-<p>class Shark:
-def <strong>init</strong>(self, name, age):
-self.name = name
-self.age = age</p>
-<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
-As with class variables, we can similarly call to print instance variables:</p>
-<p>shark.py
-class Shark:
-def <strong>init</strong>(self, name, age):
-self.name = name
-self.age = age</p>
-<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
-print(new_shark.name)
-print(new_shark.age)
-When we run the program above with python shark.py, we’ll receive the following output:</p>
-<p>Output
-Sammy
-5
-The output we receive is made up of the values of the variables that we initialized for the object instance of new_shark.</p>
-<p>Let’s create another object of the Shark class called stevie:</p>
-<p>shark.py
-class Shark:
-def <strong>init</strong>(self, name, age):
-self.name = name
-self.age = age</p>
-<p>new_shark = Shark(&ldquo;Sammy&rdquo;, 5)
-print(new_shark.name)
-print(new_shark.age)</p>
-<p>stevie = Shark(&ldquo;Stevie&rdquo;, 8)
-print(stevie.name)
-print(stevie.age)
-The stevie object, like the new_shark object passes the parameters specific for that instance of the Shark class to assign values to the instance variables.</p>
-<p>Instance variables, owned by objects of the class, allow for each object or instance to have different values assigned to those variables.</p>
-<p>Working with Class and Instance Variables Together
-Class variables and instance variables will often be utilized at the same time, so let’s look at an example of this using the Shark class we created. The comments in the program outline each step of the process.</p>
-<p>shark.py
-class Shark:</p>
-<pre><code># Class variables
-animal_type = &quot;fish&quot;
-location = &quot;ocean&quot;
+    <h2 id="0-perquisites">0. Perquisites</h2>
+<p>除了基本的golang(version &gt;= 1.12)環境以外，還需要安裝Cobra Go Package</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get github.com/spf13/cobra/cobra
+</code></pre></div><p>安裝完後，可以透過<code>cobra</code>確認安裝的結果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Cobra is a CLI library <span style="color:#66d9ef">for</span> Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.
 
-# Constructor method with instance variables name and age
-def __init__(self, name, age):
-    self.name = name
-    self.age = age
+Usage:
+  cobra <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
 
-# Method with instance variable followers
-def set_followers(self, followers):
-    print(&quot;This user has &quot; + str(followers) + &quot; followers&quot;)
-</code></pre>
-<p>def main():
-# First object, set up instance variables of constructor method
-sammy = Shark(&ldquo;Sammy&rdquo;, 5)</p>
-<pre><code># Print out instance variable name
-print(sammy.name)
+Available Commands:
+  add         Add a command to a Cobra Application
+  help        Help about any command
+  init        Initialize a Cobra Application
 
-# Print out class variable location
-print(sammy.location)
+Flags:
+  -a, --author string    author name <span style="color:#66d9ef">for</span> copyright attribution <span style="color:#f92672">(</span>default <span style="color:#e6db74">&#34;YOUR NAME&#34;</span><span style="color:#f92672">)</span>
+      --config string    config file <span style="color:#f92672">(</span>default is $HOME/.cobra.yaml<span style="color:#f92672">)</span>
+  -h, --help             help <span style="color:#66d9ef">for</span> cobra
+  -l, --license string   name of license <span style="color:#66d9ef">for</span> the project
+      --viper            use Viper <span style="color:#66d9ef">for</span> configuration <span style="color:#f92672">(</span>default true<span style="color:#f92672">)</span>
 
-# Second object
-stevie = Shark(&quot;Stevie&quot;, 8)
+Use <span style="color:#e6db74">&#34;cobra [command] --help&#34;</span> <span style="color:#66d9ef">for</span> more information about a command.
+</code></pre></div><h2 id="1-multi-level-command-root-command--sub-command">1. Multi-level command (root Command &amp; sub command)</h2>
+<p>在接下來的範例中，我們的目標是要implement一個fake-aws的cli，假裝我們可以透過fake-aws的command line來管理s3與ec2。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 利用cobra cli來init整個cli專案</span>
+cobra init fake-aws --pkg-name fake-aws
+cd fake-aws
 
-# Print out instance variable name
-print(stevie.name)
+<span style="color:#75715e"># package fake-aws installation</span>
+go mod init fake-aws
+go install fake-aws
 
-# Use set_followers method and pass followers instance variable
-stevie.set_followers(77)
+<span style="color:#75715e"># add commands</span>
+cobra add ec2
+cobra add describe -p ec2Cmd
+cobra add s3
+cobra add rm -p s3Cmd
+cobra add ls -p s3Cmd
+cobra add cp -p s3Cmd
+</code></pre></div><p>執行完後，基本上我們的fake-aws command line的大框架就已經處理得差不多了，可以透過下面的command來測試。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go run main.go
 
-# Print out class variable animal_type
-print(stevie.animal_type)
-</code></pre>
-<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&quot;:
-main()
-When we run the program with python shark.py, we’ll receive the following output:</p>
-<p>Output
-Sammy
-ocean
-Stevie
-This user has 77 followers
-fish
-Here, we have made use of both class and instance variables in two objects of the Shark class, sammy and stevie.</p>
-<p>Conclusion
-In object-oriented programming, variables at the class level are referred to as class variables, whereas variables at the object level are called instance variables.</p>
-<p>This differentiation allows us to use class variables to initialize objects with a specific value assigned to variables, and use different variables for each object with instance variables.</p>
-<p>Making use of class- and instance-specific variables can ensure that our code adheres to the DRY principle to reduce repetition within code.</p>
+A longer description that spans multiple lines and likely contains
+examples and usage of using your application. For example:
+
+Cobra is a CLI library <span style="color:#66d9ef">for</span> Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.
+
+Usage:
+  fake-aws <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+
+Available Commands:
+  ec2         A brief description of your command
+  help        Help about any command
+  s3          A brief description of your command
+
+Flags:
+      --config string   config file <span style="color:#f92672">(</span>default is $HOME/.fake-aws.yaml<span style="color:#f92672">)</span>
+  -h, --help            help <span style="color:#66d9ef">for</span> fake-aws
+  -t, --toggle          Help message <span style="color:#66d9ef">for</span> toggle
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go run main.go ec2 --help
+A longer description that spans multiple lines and likely contains examples
+and usage of using your command. For example:
+
+Cobra is a CLI library <span style="color:#66d9ef">for</span> Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.
+
+Usage:
+  fake-aws ec2 <span style="color:#f92672">[</span>flags<span style="color:#f92672">]</span>
+  fake-aws ec2 <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+
+Available Commands:
+  describe    A brief description of your command
+
+Flags:
+  -h, --help   help <span style="color:#66d9ef">for</span> ec2
+
+Global Flags:
+      --config string   config file <span style="color:#f92672">(</span>default is $HOME/.fake-aws.yaml<span style="color:#f92672">)</span>
+
+Use <span style="color:#e6db74">&#34;fake-aws ec2 [command] --help&#34;</span> <span style="color:#66d9ef">for</span> more information about a command.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go run main.go s3 --help
+A longer description that spans multiple lines and likely contains examples
+and usage of using your command. For example:
+
+Cobra is a CLI library <span style="color:#66d9ef">for</span> Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.
+
+Usage:
+  fake-aws s3 <span style="color:#f92672">[</span>flags<span style="color:#f92672">]</span>
+  fake-aws s3 <span style="color:#f92672">[</span>command<span style="color:#f92672">]</span>
+
+Available Commands:
+  cp          A brief description of your command
+  rm          A brief description of your command
+  ls          A brief description of your command
+
+Flags:
+  -h, --help   help <span style="color:#66d9ef">for</span> s3
+
+Global Flags:
+      --config string   config file <span style="color:#f92672">(</span>default is $HOME/.fake-aws.yaml<span style="color:#f92672">)</span>
+
+Use <span style="color:#e6db74">&#34;fake-aws s3 [command] --help&#34;</span> <span style="color:#66d9ef">for</span> more information about a command.
+</code></pre></div><p>透過上述的command，我們已經大概完成CLI的大框架了。</p>
+<h2 id="2-flags">2. Flags</h2>
+<p>接著，在CLI中常常會搭配不同的flag來讓cli的使用可以更彈性，借下來我們要提前面新增的<code>fake-aws ec2 describe</code>增加<code>instance-id</code>的選項，讓整體cli使用上更合理。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#75715e">// vim cmd/describe.go
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 在import後先宣告instanceID
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">instanceID</span> <span style="color:#66d9ef">string</span>
+
+<span style="color:#75715e">// 在func init()中加入
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">describeCmd</span>.<span style="color:#a6e22e">Flags</span>().<span style="color:#a6e22e">StringVarP</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">instanceID</span>, <span style="color:#e6db74">&#34;instance-id&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;specific ec2 instance id&#34;</span>)
+</code></pre></div><p>接著我們透過<code>go run main.go ec2 describe --help</code>確認，就可以看到在Flags中有我們新增的instance-id</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go run main.go ec2 describe --help
+A longer description that spans multiple lines and likely contains examples
+and usage of using your command. For example:
+
+Cobra is a CLI library <span style="color:#66d9ef">for</span> Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.
+
+Usage:
+  fake-aws ec2 describe <span style="color:#f92672">[</span>flags<span style="color:#f92672">]</span>
+
+Flags:
+  -h, --help                 help <span style="color:#66d9ef">for</span> describe
+      --instance-id string   specific ec2 instance id
+
+Global Flags:
+      --config string   config file <span style="color:#f92672">(</span>default is $HOME/.fake-aws.yaml<span style="color:#f92672">)</span>
+</code></pre></div><p>確認沒問題後，我們繼續來完成flag剩下的部分，先回到<code>cmd/describe.go</code>找到<code>describeCmd</code>並在<code>Run</code>中加入。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">
+        <span style="color:#75715e">// instance-id required check
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fflags</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Flags</span>()
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">fflags</span>.<span style="color:#a6e22e">Changed</span>(<span style="color:#e6db74">&#34;instance-id&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#66d9ef">false</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;No instance id specified. please use `fake-aws ec2 describe --help` for more information.&#34;</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+
+        <span style="color:#75715e">// get flag value
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">instanceID</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Flags</span>().<span style="color:#a6e22e">GetString</span>(<span style="color:#e6db74">&#34;instance-id&#34;</span>)
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">err</span>)
+            <span style="color:#66d9ef">return</span>
+        }
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;instanceID:&#34;</span>, <span style="color:#a6e22e">instanceID</span>)
+</code></pre></div><p>最後稍微確認一下剛剛設定的flag規則。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go run main.go ec2 describe
+describe called
+No instance id specified. please use <span style="color:#e6db74">`</span>fake-aws ec2 describe --help<span style="color:#e6db74">`</span> <span style="color:#66d9ef">for</span> more information.
+
+&gt; go run main.go ec2 describe --instance-id<span style="color:#f92672">=</span>p0n2
+describe called
+instanceID: p0n2
+
+</code></pre></div><p>除了前面提到的flag在單一command中的特定用法之外，Cobra也提供了global的persistent flags讓使用者可以在rootCmd裡新增，例如<code>kubectl</code>中常見的namespace就是可以誇sub command使用的flag。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">PersistentFlags</span>().<span style="color:#a6e22e">StringVarP</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Namespace</span>, <span style="color:#e6db74">&#34;namespace&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;default&#34;</span>, <span style="color:#e6db74">&#34;namespace output&#34;</span>)
+</code></pre></div><h2 id="3-summary">3. Summary</h2>
+<p>如果想要更真實的體驗一下完成的CLI，可以透過go package的安裝來使用看看完成的CLI，確認沒問題後也可以將完成的binary build出來</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; go install fake-aws
+&gt; fake-aws --help
+&gt; fake-aws ec2 describe --instance-id<span style="color:#f92672">=</span>p0n2
+describe called
+instanceID: p0n2
+</code></pre></div><p>如果有興趣的人可以瀏覽<a href="https://github.com/spf13/cobra">Cobra</a>的repo，裡面有滿多範例與細節的解說。</p>
 
 
     <script type="text/javascript">
@@ -277,7 +316,7 @@ In object-oriented programming, variables at the class level are referred to as 
       <div class="info">
         
         
-    <span class="separator"><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/python3/">python3</a><a class="tag" href="/tags/vscode/">vscode</a><a class="tag" href="/tags/extension/">extension</a><a class="tag" href="/tags/django/">django</a><a class="tag" href="/tags/robot-framework/">robot framework</a><a class="tag" href="/tags/pip/">pip</a><a class="tag" href="/tags/brew/">brew</a><a class="tag" href="/tags/intellicode/">IntelliCode</a><a class="tag" href="/tags/docstring/">Docstring</a></span>
+    <span class="separator"><a class="tag" href="/tags/golang/">golang</a><a class="tag" href="/tags/cobra/">cobra</a><a class="tag" href="/tags/cli/">cli</a><a class="tag" href="/tags/aws/">aws</a><a class="tag" href="/tags/s3/">s3</a><a class="tag" href="/tags/amazon/">amazon</a><a class="tag" href="/tags/ec2/">ec2</a><a class="tag" href="/tags/command-line/">command-line</a><a class="tag" href="/tags/go/">Go</a><a class="tag" href="/tags/awscli/">awscli</a></span>
 
       </div>
 
@@ -285,15 +324,15 @@ In object-oriented programming, variables at the class level are referred to as 
 <h3>See Also</h3>
 <ul>
 	
-	<li><a href="/post/2020_09_python3_module/">How To Import Modules in Python 3</a></li>
-	
-	<li><a href="/post/2020_09_python3_class_inheritance/">Understanding Class Inheritance in Python 3</a></li>
-	
 	<li><a href="/post/2020_08_python3_installation_all/">macOS設定Python3.8-VSCode開發環境</a></li>
 	
 	<li><a href="/post/2020_07_nat_gw_cost_optimized/">AWS NatGateway Cost Optimization筆記</a></li>
 	
 	<li><a href="/post/2020_07_aws_es_all/">AWS ElasticSearch/ES 筆記</a></li>
+	
+	<li><a href="/post/2020_06_s3_enable_cors/">AWS S3 Enable CORS</a></li>
+	
+	<li><a href="/post/2020_06_aws_es_sizing_example/">AWS ElasticSearch Cluster Sizing Practice 筆記</a></li>
 	
 </ul>
 </div>

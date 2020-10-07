@@ -6,10 +6,100 @@
     <description>Recent content in Tags on p0n2&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2020 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://p0n2.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>amazon</title>
+      <link>https://p0n2.github.io/tags/amazon/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://p0n2.github.io/tags/aws/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awscli</title>
+      <link>https://p0n2.github.io/tags/awscli/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/awscli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://p0n2.github.io/tags/cli/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cobra</title>
+      <link>https://p0n2.github.io/tags/cobra/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/cobra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command-line</title>
+      <link>https://p0n2.github.io/tags/command-line/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>https://p0n2.github.io/tags/ec2/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://p0n2.github.io/tags/go/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://p0n2.github.io/tags/golang/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>https://p0n2.github.io/tags/s3/</link>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://p0n2.github.io/tags/s3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>brew</title>
@@ -102,24 +192,6 @@
     </item>
     
     <item>
-      <title>amazon</title>
-      <link>https://p0n2.github.io/tags/amazon/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/tags/amazon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>https://p0n2.github.io/tags/aws/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Billing</title>
       <link>https://p0n2.github.io/tags/billing/</link>
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
@@ -170,15 +242,6 @@
       <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
       
       <guid>https://p0n2.github.io/tags/natgateway/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>S3</title>
-      <link>https://p0n2.github.io/tags/s3/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/tags/s3/</guid>
       <description></description>
     </item>
     
@@ -251,15 +314,6 @@
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
       
       <guid>https://p0n2.github.io/tags/cognito/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ec2</title>
-      <link>https://p0n2.github.io/tags/ec2/</link>
-      <pubDate>Tue, 30 Jun 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/tags/ec2/</guid>
       <description></description>
     </item>
     
@@ -539,15 +593,6 @@
       <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
       
       <guid>https://p0n2.github.io/tags/dom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://p0n2.github.io/tags/golang/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://p0n2.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
